@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hy.dao.mapper.AboutWeMapper">
+  <resultMap id="BaseResultMap" type="com.hy.domain.AboutWe">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="itext" jdbcType="VARCHAR" property="itext" />
+    <result column="sid" jdbcType="INTEGER" property="sid" />
+  </resultMap>
+  <select id="selectAllSortedBySid" resultMap="BaseResultMap">
+    select id, image_url, itext, sid
+    from about_we
+    order by sid
+    asc
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from about_we
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hy.domain.AboutWe">
+    insert into about_we (id, image_url, itext, 
+      sid)
+    values (#{id,jdbcType=INTEGER}, #{imageUrl,jdbcType=VARCHAR}, #{itext,jdbcType=VARCHAR}, 
+      #{sid,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hy.domain.AboutWe">
+    update about_we
+    set image_url = #{imageUrl,jdbcType=VARCHAR},
+      itext = #{itext,jdbcType=VARCHAR},
+      sid = #{sid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, image_url, itext, sid
+    from about_we
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, image_url, itext, sid
+    from about_we
+  </select>
+</mapper>

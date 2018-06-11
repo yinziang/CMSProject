@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hy.dao.mapper.PageMapper">
+  <resultMap id="BaseResultMap" type="com.hy.domain.Page">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="create_at" jdbcType="DATE" property="createAt" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="thumbnail" jdbcType="VARCHAR" property="thumbnail" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <select id="selectAllByPartId" resultMap="BaseResultMap">
+    select id, title, pid, keyword, description, create_at, image_url, thumbnail, content
+    from page
+    where 1 = 1
+    and pid = #{partId,jdbcType=INTEGER}
+    order by create_at
+    desc
+  </select>
+  <delete id="deleteByPid" parameterType="java.lang.Integer">
+    delete from page
+    where pid = #{pid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from page
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hy.domain.Page">
+    insert into page (id, title, pid,
+      keyword, description, create_at,
+      image_url, thumbnail, content
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER},
+      #{keyword,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{createAt,jdbcType=DATE},
+      #{imageUrl,jdbcType=VARCHAR}, #{thumbnail,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hy.domain.Page">
+    update page
+    set title = #{title,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER},
+      keyword = #{keyword,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=DATE},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      thumbnail = #{thumbnail,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, title, pid, keyword, description, create_at, image_url, thumbnail, content
+    from page
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, title, pid, keyword, description, create_at, image_url, thumbnail, content
+    from page
+  </select>
+</mapper>

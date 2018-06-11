@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hy.dao.mapper.PartMapper">
+  <resultMap id="BaseResultMap" type="com.hy.domain.Part">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="mid" jdbcType="INTEGER" property="mid" />
+    <result column="pname" jdbcType="VARCHAR" property="pname" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <select id="selectAllByModuleId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, mid, pname, description
+    from part
+    where 1 = 1
+    and mid = #{mid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from part
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hy.domain.Part">
+    insert into part (id, mid, pname, 
+      description)
+    values (#{id,jdbcType=INTEGER}, #{mid,jdbcType=INTEGER}, #{pname,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hy.domain.Part">
+    update part
+    set mid = #{mid,jdbcType=INTEGER},
+      pname = #{pname,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, mid, pname, description
+    from part
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, mid, pname, description
+    from part
+  </select>
+</mapper>
