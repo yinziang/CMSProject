@@ -43,40 +43,47 @@ public class AdminController {
         return "/back/module_list";
     }
 
-
+    @RequestMapping(value = "/modules/{id}", method = RequestMethod.GET)
+    public String getModuleById(@PathVariable(value = "id")Integer id, ModelMap map) {
+        Module module = moduleService.getModuleById(id);
+        map.addAttribute("module", module);
+        return "/back/module_update";
+    }
 
     @RequestMapping(value = "/modules/{id}", method = RequestMethod.PUT)
-    public JSONResult updateModule(@PathVariable(value = "id") Integer id, Module module) {
+    public String updateModule(@PathVariable(value = "id") Integer id, Module module) {
         moduleService.updateModule(module);
-        return JSONResult.ok();
+        return "redirect:/admin/modules";
     }
 
     // ********************** ********************** **********************
     /* Part的CRUD */
     @RequestMapping(value = "/modules/{mid}/parts", method = RequestMethod.GET)
-    public JSONResult listPart(@PathVariable(value = "mid") Integer mid) {
+    public String listPart(@PathVariable(value = "mid") Integer mid, ModelMap map) {
         List<Part> partList = partService.listPartByModuleId(mid);
-        return JSONResult.ok();
+        map.addAttribute("partList", partList);
+        return "/back/part_list";
     }
 
     @RequestMapping(value = "/parts", method = RequestMethod.POST)
-    public JSONResult addPart(Part part) {
+    public String addPart(Part part) {
         partService.savePart(part);
-        return JSONResult.ok();
+        return "redirect:/admin/modules" + part.getMid() + "/parts";
     }
 
     @RequestMapping(value = "/parts/{id}", method = RequestMethod.PUT)
-    public JSONResult updatePart(@PathVariable(value = "id") Integer id, Part part) {
+    public String updatePart(@PathVariable(value = "id") Integer id, Part part) {
         partService.updatePart(part);
-        return JSONResult.ok();
+        return "redirect:/admin/modules" + part.getMid() + "/parts";
     }
 
     @RequestMapping(value = "/parts/{id}", method = RequestMethod.DELETE)
-    public JSONResult deletePart(@PathVariable(value = "id") Integer id) {
+    public String deletePart(@PathVariable(value = "id") Integer id) {
         // TODO 此处是否考虑改变状态而不是删除
+        Part part = partService.getPartById(id);
         partService.deletePartById(id);
         pageService.deletePageByPid(id);
-        return JSONResult.ok();
+        return "redirect:/admin/modules" + part.getMid() + "/parts";
     }
 
     // ********************** ********************** **********************

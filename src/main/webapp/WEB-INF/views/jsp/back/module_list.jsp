@@ -33,6 +33,7 @@
             <table class="list_table">
                 <thead>
                 <tr>
+                    <th>序号</th>
                     <th>模块名称</th>
                     <th>操作</th>
                 </tr>
@@ -45,8 +46,8 @@
                 <c:forEach items="${moduleList}" var="module">
                     <tr>
                         <td>${module.id}</td>
-                        <td>${module.mname}</td>
-                        <td><a href="./goods/update?goodsId=${module.id}">
+                        <td><a href="./admin/modules/${module.id}/parts">${module.mname}</a></td>
+                        <td><a href="./admin/modules/${module.id}">
                             <img class="operator" src="images/admin/icon_edit.gif" alt="编辑" /></a>
                     </tr>
                 </c:forEach>
