@@ -26,6 +26,11 @@ public class ModuleServiceImpl implements ModuleService {
         return moduleMapper.updateByPrimaryKey(module);
     }
 
+    @Override
+    public Module getModuleById(Integer id) {
+        return moduleMapper.selectByPrimaryKey(id);
+    }
+
 //    @Override
 //    public ModuleDetail getModuleDetailById(Integer id) {
 //        return moduleMapper.selectModuleDetailByPrimaryKey(id);

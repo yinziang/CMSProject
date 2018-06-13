@@ -10,5 +10,7 @@ public interface ModuleService {
 
     int updateModule(Module module);
 
+    Module getModuleById(Integer id);
+
 //    ModuleDetail getModuleDetailById(Integer id);
 }
