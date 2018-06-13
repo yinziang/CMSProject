@@ -1,22 +1,27 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html >
 <html>
 <head>
-    <base href="${base}/" />
+    <base href="${base}/"/>
     <title>后台管理</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/admin.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/admin.css"/>
 </head>
 <body>
 <div class="container">
-    <div id="header">
-        <jsp:include page="header.jsp" />
+    <div id="header" class="row">
+        <jsp:include page="header.jsp"/>
     </div>
+
     <div id="admin_left">
         <ul class="submenu">
-            <jsp:include page="left.jsp" />
+            <jsp:include page="left.jsp"/>
         </ul>
         <div id="copyright"></div>
     </div>
@@ -32,6 +37,7 @@
         </div>
 
     </div>
+
 
 </div>
 </body>

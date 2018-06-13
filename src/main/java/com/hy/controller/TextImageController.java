@@ -155,6 +155,7 @@ public class TextImageController {
 
     @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public JSONResult getContact() {
+        System.out.println("contact");
         Contact contact = textImageService.getContact();
         Map<String, String> data = new LinkedHashMap<>();
         data.put("cname", contact.getCname());

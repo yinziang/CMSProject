@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hy.dao.mapper.AdminMapper">
-  <resultMap id="BaseResultMap" type="com.hy.domain.Admin">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="aname" jdbcType="VARCHAR" property="aname" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="role" jdbcType="INTEGER" property="role" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <resultMap id="BaseResultMap" type="com.hy.domain.Admin">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="aname" jdbcType="VARCHAR" property="aname"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="role" jdbcType="INTEGER" property="role"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from admin
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hy.domain.Admin">
+    <insert id="insert" parameterType="com.hy.domain.Admin">
     insert into admin (id, aname, password, 
       role, status)
     values (#{id,jdbcType=INTEGER}, #{aname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{role,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.hy.domain.Admin">
+    <update id="updateByPrimaryKey" parameterType="com.hy.domain.Admin">
     update admin
     set aname = #{aname,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
@@ -26,13 +26,19 @@
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select id, aname, password, role, status
     from admin
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
     select id, aname, password, role, status
     from admin
+  </select>
+
+    <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, aname, password, role, status
+    from admin
+    where aname = #{username,jdbcType=VARCHAR}
   </select>
 </mapper>

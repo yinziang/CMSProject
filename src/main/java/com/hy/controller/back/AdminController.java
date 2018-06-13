@@ -4,6 +4,7 @@ package com.hy.controller.back;
 import com.hy.domain.Module;
 import com.hy.domain.Page;
 import com.hy.domain.Part;
+import com.hy.service.AdminService;
 import com.hy.service.ModuleService;
 import com.hy.service.PageService;
 import com.hy.service.PartService;
@@ -14,7 +15,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -28,6 +28,22 @@ public class AdminController {
     PartService partService = null;
     @Autowired
     PageService pageService = null;
+    @Autowired
+    AdminService adminService;
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(String username, String password) {
+        System.out.println("username:"+username+"  password:"+password);
+
+        if (username == null || username.length() <= 0) {
+            return "/login_fail";
+        }
+        if (!adminService.loginByUsernamePassword(username, password)) {
+            return "/login_fail";
+        }
+
+        return "/back/index";
+    }
 
     @RequestMapping("/index")
     public String toIndex(ModelMap map) {

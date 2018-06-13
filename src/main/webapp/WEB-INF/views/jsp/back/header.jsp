@@ -1,10 +1,10 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Header</title>
+    <title>后台管理-Header</title>
 </head>
 <body>
-    <h2>Header</h2>
+    <h2 style="text-align: center;margin:auto">肾畅医疗后台管理</h2>
 </body>
 </html>

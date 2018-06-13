@@ -35,6 +35,21 @@
     <!--允许js目录下所有文件可见 -->
     <mvc:resources location="/js/" mapping="/js/**" />
 
+    <mvc:cors>
+
+        <mvc:mapping path="/**"
+                     allowed-origins="*"
+                     allowed-methods="GET, PUT"
+                     allow-credentials="true"
+                     allowed-headers="*"
+                     max-age="1800" />
+
+        <mvc:mapping path="/resources/**"
+                     allowed-origins="*" />
+
+    </mvc:cors>
+
+
     <!--文件上传-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize">
@@ -52,5 +67,8 @@
         <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>
+
+
+
 
 </beans>
