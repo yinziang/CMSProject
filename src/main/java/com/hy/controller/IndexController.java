@@ -79,5 +79,38 @@ public class IndexController {
         return jsonResult;
     }
 
+    /**
+     * 获取首页的轮播图的图片信息
+     *
+     * @return 将数据传输到显示我们的简介的修改页面
+     */
+    @RequestMapping(value = "/getSlider", method = RequestMethod.GET)
+    public String getSlider() {
+        System.out.println("进入getSlider...");
+        return "/back/update_slider";
+    }
+
+    /**
+     * 获取首页的解决方案的信息
+     *
+     * @return 将数据传输到显示我们的简介的修改页面
+     */
+    @RequestMapping(value = "/getSolution", method = RequestMethod.GET)
+    public String getSolution() {
+        System.out.println("进入getSlider...");
+        return "/back/update_solution";
+    }
+
+    /**
+     * 获取首页的我们的简介信息
+     *
+     * @return 将数据传输到显示我们的简介的修改页面
+     */
+    @RequestMapping(value = "/getBrief", method = RequestMethod.GET)
+    public String getBrief() {
+        System.out.println("进入getSlider...");
+        return "/back/update_brief";
+    }
+
 
 }

@@ -29,9 +29,10 @@
     <!-- 允许css目录下所有文件可见 -->
     <mvc:resources location="/css/" mapping="/css/**" />
     <!-- 允许html目录下所有文件可见 -->
-    <mvc:resources location="/html/" mapping="/html/**" />
+    <mvc:resources location="/html/" mapping="/WEB-INF/views/**" />
     <!--允许images目录下所有文件可见 -->
-    <mvc:resources location="/images/" mapping="/images/**" />
+    <mvc:resources location="/img/" mapping="/img/**" />
+
     <!--允许js目录下所有文件可见 -->
     <mvc:resources location="/js/" mapping="/js/**" />
 
@@ -39,7 +40,7 @@
 
         <mvc:mapping path="/**"
                      allowed-origins="*"
-                     allowed-methods="GET, PUT"
+                     allowed-methods="GET, PUT,POST,OPTIONS"
                      allow-credentials="true"
                      allowed-headers="*"
                      max-age="1800" />
@@ -63,7 +64,7 @@
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           id="internalResourceViewResolver">
         <!-- 前缀 -->
-        <property name="prefix" value="/WEB-INF/views/jsp/" />
+        <property name="prefix" value="/WEB-INF/views/jsp" />
         <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>

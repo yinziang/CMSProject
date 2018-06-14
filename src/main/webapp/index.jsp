@@ -8,7 +8,7 @@
     <title>登录界面</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
 </head>
 <body>
 

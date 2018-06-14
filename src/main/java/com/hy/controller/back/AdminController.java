@@ -36,10 +36,10 @@ public class AdminController {
         System.out.println("username:"+username+"  password:"+password);
 
         if (username == null || username.length() <= 0) {
-            return "/login_fail";
+            return "/error/login_fail";
         }
         if (!adminService.loginByUsernamePassword(username, password)) {
-            return "/login_fail";
+            return "/error/login_fail";
         }
 
         return "/back/index";
