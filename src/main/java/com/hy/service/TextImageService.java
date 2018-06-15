@@ -11,5 +11,7 @@ public interface TextImageService {
 
     Contact getContact();
 
+    int updateContact(Contact contact);
+
     List<ImageText> listImageTextByPartId(Integer partId);
 }

@@ -16,7 +16,7 @@
         <div id="cm-menu-items-wrapper">
             <div id="cm-menu-scroller">
                 <ul class="cm-menu-items">
-                    <li class="active"><a href="index.html" class="sf-file-note">模块列表</a></li>
+                    <li class="active"><a href="/admin/modules" class="sf-file-note">模块列表</a></li>
                     <li class="cm-submenu">
                         <a class="sf-house">首页 <span class="caret"></span></a>
                         <ul>
@@ -55,7 +55,7 @@
                     <li><a href="notepad.html" class="sf-window-layout">最新资讯</a></li>
                     <li><a href="login.html" class="sf-bullhorn">健康宣教</a></li>
                     <li><a href="login.html" class="sf-profile-group">肾友会</a></li>
-                    <li><a href="login.html" class="sf-address-book">联系我们</a></li>
+                    <li><a href="/admin/toContact" class="sf-address-book">联系我们</a></li>
                 </ul>
             </div>
         </div>

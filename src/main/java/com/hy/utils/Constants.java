@@ -19,7 +19,7 @@ public interface Constants {
     String ERROR_MESSAGE = "遇到麻烦了，请等喘口气再操作！";
     String OK_MESSAGE = "操作成功";
     String PICTURE_NAME = "pic";
-    String SOLUTION_IMAGE_PATH = "images/page/solution.jpg";
+    String SOLUTION_IMAGE_PATH = "images/page/solution.png";
 
 
     /* followings deprecated */

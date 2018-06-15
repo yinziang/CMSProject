@@ -20,11 +20,11 @@
             <form class="form-horizontal" action="./admin/login" method="post">
                 <span class="heading">登录界面</span>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="username" id="inputEmail3" placeholder="请输入用户名">
+                    <input type="text" class="form-control" name="username" id="inputEmail3" placeholder="请输入用户名" value="admin">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="form-group help">
-                    <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="请输入密码">
+                    <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="请输入密码" value="admin">
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>

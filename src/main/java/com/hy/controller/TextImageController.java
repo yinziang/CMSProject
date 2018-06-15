@@ -158,17 +158,41 @@ public class TextImageController {
         System.out.println("contact");
         Contact contact = textImageService.getContact();
         Map<String, String> data = new LinkedHashMap<>();
+        data.put("id", contact.getId()+"");
         data.put("cname", contact.getCname());
         data.put("ename", contact.getEname());
-        data.put("telphone", "电话：" + contact.getTelphone());
-        data.put("email", "邮箱：" + contact.getEmail());
-        data.put("website", "网址：" + contact.getWebsite());
-        data.put("location", "地址：" + contact.getLocation());
+        data.put("telphone", contact.getTelphone());
+        data.put("email", contact.getEmail());
+        data.put("website", contact.getWebsite());
+        data.put("location", contact.getLocation());
 
         JSONResult jsonResult = new JSONResult();
         jsonResult.setMsg("操作成功");
         jsonResult.setStatus(200);
         jsonResult.setData(data);
+        return jsonResult;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/updateContact", method = RequestMethod.POST)
+    public JSONResult updateContact(@RequestBody Contact contact) {
+        System.out.println("updateContact:  cname:"+contact.getCname()+" id:"+contact.getId());
+        JSONResult jsonResult = new JSONResult();
+        if (contact != null && contact.getId() != null && contact.getId() > 0) {
+            int result = textImageService.updateContact(contact);
+            if (result > 0) {
+                jsonResult.setMsg("更新成功");
+                jsonResult.setStatus(200);
+                jsonResult.setData(contact);
+            } else {
+                jsonResult.setMsg("更新失败");
+                jsonResult.setStatus(400);
+            }
+        } else {
+            jsonResult.setMsg("参数有误");
+            jsonResult.setStatus(300);
+        }
+
         return jsonResult;
     }
 

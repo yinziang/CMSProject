@@ -29,7 +29,7 @@
     <!-- 允许css目录下所有文件可见 -->
     <mvc:resources location="/css/" mapping="/css/**" />
     <!-- 允许html目录下所有文件可见 -->
-    <mvc:resources location="/html/" mapping="/WEB-INF/views/**" />
+    <mvc:resources location="/fonts/" mapping="/fonts/**" />
     <!--允许images目录下所有文件可见 -->
     <mvc:resources location="/img/" mapping="/img/**" />
 

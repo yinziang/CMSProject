@@ -34,6 +34,14 @@ public class TextImageServiceImpl  implements TextImageService {
     }
 
     @Override
+    public int updateContact(Contact contact) {
+        if (contact == null || contact.getId() == null || contact.getId() <= 0) {
+            return -1;
+        }
+        return  contactMapper.updateByPrimaryKey(contact);
+    }
+
+    @Override
     public List<ImageText> listImageTextByPartId(Integer partId) {
         return imageTextMapper.selectAllByPartIdOrderBySid(partId);
     }

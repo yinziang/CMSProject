@@ -12,9 +12,7 @@ import com.hy.utils.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,6 +43,12 @@ public class AdminController {
         return "/back/index";
     }
 
+    @RequestMapping("/toContact")
+    public String toContact(ModelMap map) {
+        return "/back/update_contact";
+    }
+
+
     @RequestMapping("/index")
     public String toIndex(ModelMap map) {
         return "/back/index";
@@ -66,10 +70,28 @@ public class AdminController {
         return "/back/module_update";
     }
 
-    @RequestMapping(value = "/modules/{id}", method = RequestMethod.PUT)
-    public String updateModule(@PathVariable(value = "id") Integer id, Module module) {
-        moduleService.updateModule(module);
-        return "redirect:/admin/modules";
+    @ResponseBody
+    @RequestMapping(value = "/updateModules", method = RequestMethod.POST)
+    public JSONResult updateModule(@RequestBody Module module) {
+        System.out.println("updateModule:  mname:"+module.getMname());
+        JSONResult jsonResult = new JSONResult();
+        if (module != null && module.getId() != null && module.getId() > 0) {
+            int result = moduleService.updateModule(module);
+            if (result > 0) {
+                jsonResult.setMsg("更新成功");
+                jsonResult.setStatus(200);
+                jsonResult.setData(module);
+            } else {
+                jsonResult.setMsg("更新失败");
+                jsonResult.setStatus(400);
+            }
+        } else {
+            jsonResult.setMsg("参数有误");
+            jsonResult.setStatus(300);
+        }
+
+        System.out.println(jsonResult.toString());
+        return jsonResult;
     }
 
     // ********************** ********************** **********************
