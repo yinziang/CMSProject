@@ -27,7 +27,7 @@
 <%-- 主体部分显示的代码--%>
 <div id="global">
     <div class="container-fluid cm-container-white">
-        <h2 style="margin-top:0;text-align: center;">修改我们的简介界面</h2>
+        <h2 style="margin-top:0;text-align: center;">修改我们的文化界面</h2>
     </div>
     <div class="container-fluid">
         <div class="row cm-fix-height">
@@ -116,7 +116,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: '/admin/parts/1/pages', // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
+            url: '/admin/parts/3/pages', // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
             success: function (res) {
                 console.log(res)
                 data = res.data;

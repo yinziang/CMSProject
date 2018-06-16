@@ -27,7 +27,7 @@
 <%-- 主体部分显示的代码--%>
 <div id="global">
     <div class="container-fluid cm-container-white">
-        <h2 style="margin-top:0;text-align: center;">修改我们的简介界面</h2>
+        <h2 style="margin-top:0;text-align: center;">修改社会责任界面</h2>
     </div>
     <div class="container-fluid">
         <div class="row cm-fix-height">
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="row cm-fix-height">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">修改内容</div>
                     <div class="panel-body">
@@ -69,20 +69,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <img id="brief-img2" src="/img/sass-less.png" alt="Less support" class="img-responsive">
-                        <form style="margin-top: 10px;font-size: large">
-                            <div class="form-group">
-                                <input type="file" name="file" class="form-control-file" id="brief-img2-up" value="修改图片" disabled>
-                                <input type="txt" name="imageUrl" id="page2-image-url" hidden>
-                                <input type="submit" id="page2-image-up" value="上传" disabled/>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <%--<div class="col-sm-6">--%>
+                <%--<div class="panel panel-default">--%>
+                    <%--<div class="panel-body">--%>
+                        <%--<img id="brief-img2" src="/img/sass-less.png" alt="Less support" class="img-responsive">--%>
+                        <%--<form style="margin-top: 10px;font-size: large">--%>
+                            <%--<div class="form-group">--%>
+                                <%--<input type="file" name="file" class="form-control-file" id="brief-img2-up" value="修改图片" disabled>--%>
+                                <%--<input type="txt" name="imageUrl" id="page2-image-url" hidden>--%>
+                                <%--<input type="submit" id="page2-image-up" value="上传" disabled/>--%>
+                            <%--</div>--%>
+                        <%--</form>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
         </div>
 
     </div>
@@ -116,18 +116,18 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: '/admin/parts/1/pages', // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
+            url: '/admin/parts/4/pages', // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
             success: function (res) {
                 console.log(res)
                 data = res.data;
                 if (res.status == 200) {
                     console.log("操作成功")
                     document.getElementById("brief-img1").src = res.data[0].imageUrl;
-                    document.getElementById("brief-img2").src = res.data[1].imageUrl;
+//                    document.getElementById("brief-img2").src = res.data[1].imageUrl;
                     document.getElementById("brief-txt-1").value = res.data[0].content;
                     document.getElementById("brief-txt-2").value = res.data[1].content;
                     document.getElementById("page1-image-url").value = res.data[0].imageUrl;
-                    document.getElementById("page2-image-url").value = res.data[1].imageUrl;
+//                    document.getElementById("page2-image-url").value = res.data[1].imageUrl;
                 } else {
                     console.log("操作失败")
                 }
@@ -142,9 +142,9 @@
         $('#brief-txt-1').attr("disabled",false);
         $('#brief-txt-2').attr("disabled",false);
         $('#page1-image-up').attr("disabled",false);
-        $('#page2-image-up').attr("disabled",false);
+//        $('#page2-image-up').attr("disabled",false);
         $('#brief-img1-up').attr("disabled",false);
-        $('#brief-img2-up').attr("disabled",false);
+//        $('#brief-img2-up').attr("disabled",false);
     }
 
     function clickSave() {
@@ -175,9 +175,9 @@
         $('#brief-txt-1').attr("disabled",true);
         $('#brief-txt-2').attr("disabled",true);
         $('#page1-image-up').attr("disabled",true);
-        $('#page2-image-up').attr("disabled",true);
+//        $('#page2-image-up').attr("disabled",true);
         $('#brief-img1-up').attr("disabled",true);
-        $('#brief-img2-up').attr("disabled",true);
+//        $('#brief-img2-up').attr("disabled",true);
     }
 
 </script>

@@ -15,7 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,10 +38,76 @@ public class AdminController {
     AdminService adminService;
 
 
+    /**
+     * 文件上传
+     * @param file
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    public String uploadFile(String imageUrl, MultipartFile file, HttpServletRequest request) throws Exception {
+        System.out.println("uploadFile:imageUrl:"+imageUrl+"  file:"+(file == null));
+
+        if (file != null && file.getName() != null && !file.isEmpty()) {
+            String FILE_TARGET = "target";
+            String basePath = request.getSession().getServletContext().getRealPath("/");
+            System.out.println("basePath:"+basePath);
+
+            if (basePath.contains(FILE_TARGET)) {
+                basePath = basePath.substring(0,basePath.lastIndexOf(FILE_TARGET));
+            }
+
+            try{
+                // 新的图片
+                File newFile = new File(basePath + imageUrl);
+
+                // 将内存中的数据写入磁盘
+                file.transferTo(newFile);
+
+                return "/back/index";
+            }catch (Exception e) {
+                e.printStackTrace();
+                return "/error/upload_fail";
+            }
+        }
+        return "/error/upload_fail";
+    }
+
+
     // ********************** 页面跳转控制器 **********************
 
     /**
-     * 跳转到联系人界面你的控制器
+     * 跳转到肾畅责任界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toZeRen")
+    public String toZeRen(ModelMap map) {
+        return "/back/update_zeren";
+    }
+
+    /**
+     * 跳转到肾畅文化界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toWenHua")
+    public String toWenHua(ModelMap map) {
+        return "/back/update_wenhua";
+    }
+
+    /**
+     * 跳转到肾畅实力界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toShiLi")
+    public String toShiLi(ModelMap map) {
+        return "/back/update_shili";
+    }
+
+    /**
+     * 跳转到肾畅简介界面的控制器
      * @param map
      * @return
      */
@@ -223,9 +292,12 @@ public class AdminController {
         return JSONResult.ok();
     }
 
-    @RequestMapping(value = "/pages/{id}", method = RequestMethod.PUT)
-    public JSONResult update(@PathVariable(value = "id") Integer id, Page page) {
-        pageService.updatePage(page);
+    @ResponseBody
+    @RequestMapping(value = "/updatePages", method = RequestMethod.PUT)
+    public JSONResult updatePages(@RequestBody List<Page> pages) {
+        for (Page p : pages) {
+            pageService.updatePage(p);
+        }
         return JSONResult.ok();
     }
 
