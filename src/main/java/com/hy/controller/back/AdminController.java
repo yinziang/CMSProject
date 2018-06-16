@@ -9,12 +9,17 @@ import com.hy.service.ModuleService;
 import com.hy.service.PageService;
 import com.hy.service.PartService;
 import com.hy.utils.JSONResult;
+import com.sun.org.apache.xpath.internal.operations.Mod;
+import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -29,6 +34,25 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
+
+    // ********************** 页面跳转控制器 **********************
+
+    /**
+     * 跳转到联系人界面你的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toBrief")
+    public String toBrief(ModelMap map) {
+        return "/back/update_brief";
+    }
+
+    /**
+     * 管理员用户登录的控制器
+     * @param username
+     * @param password
+     * @return
+     */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(String username, String password) {
         System.out.println("username:"+username+"  password:"+password);
@@ -43,23 +67,46 @@ public class AdminController {
         return "/back/index";
     }
 
+    /**
+     * 跳转到联系人界面你的控制器
+     * @param map
+     * @return
+     */
     @RequestMapping("/toContact")
     public String toContact(ModelMap map) {
         return "/back/update_contact";
     }
 
 
+    /**
+     * 获取前端用户首页信息
+     * @param map
+     * @return
+     */
     @RequestMapping("/index")
     public String toIndex(ModelMap map) {
         return "/back/index";
     }
 
-    // ********************** ********************** **********************
-    /* Module的CRUD */
+
+    // ********************** Module的CRUD **********************
+
+    /**
+     * 得到所有的模块和子模块信息
+     * @param map
+     * @return
+     */
     @RequestMapping(value = "/modules", method = RequestMethod.GET)
     public String listModule(ModelMap map) {
         List<Module> moduleList = moduleService.listModule();
         map.addAttribute("moduleList", moduleList);
+
+        List<Part> partsOfModule = new ArrayList<>();
+
+        for (Module m: moduleList) {
+            partsOfModule.addAll(partService.listPartByModuleId(m.getId()));
+        }
+        map.addAttribute("partsOfModule", partsOfModule);
         return "/back/module_list";
     }
 
@@ -70,8 +117,13 @@ public class AdminController {
         return "/back/module_update";
     }
 
+    /**
+     * 更新模块信息
+     * @param module
+     * @return
+     */
     @ResponseBody
-    @RequestMapping(value = "/updateModules", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateModule", method = RequestMethod.POST)
     public JSONResult updateModule(@RequestBody Module module) {
         System.out.println("updateModule:  mname:"+module.getMname());
         JSONResult jsonResult = new JSONResult();
@@ -94,8 +146,9 @@ public class AdminController {
         return jsonResult;
     }
 
-    // ********************** ********************** **********************
-    /* Part的CRUD */
+
+    // ********************** Part的CRUD ********************** **********************
+
     @RequestMapping(value = "/modules/{mid}/parts", method = RequestMethod.GET)
     public String listPart(@PathVariable(value = "mid") Integer mid, ModelMap map) {
         List<Part> partList = partService.listPartByModuleId(mid);
@@ -109,10 +162,40 @@ public class AdminController {
         return "redirect:/admin/modules" + part.getMid() + "/parts";
     }
 
-    @RequestMapping(value = "/parts/{id}", method = RequestMethod.PUT)
-    public String updatePart(@PathVariable(value = "id") Integer id, Part part) {
-        partService.updatePart(part);
-        return "redirect:/admin/modules" + part.getMid() + "/parts";
+    @RequestMapping(value = "/parts", method = RequestMethod.GET)
+    public String getPart(@PathVariable(value = "id") Integer id, ModelMap map) {
+        List<Part> partList = partService.listPartByModuleId(id);
+        map.addAttribute("partList", partList);
+        return "/back/part_list";
+    }
+
+    /**
+     * 更新子模块信息
+     * @param part
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/updatePart", method = RequestMethod.POST)
+    public JSONResult updatePart(@RequestBody Part part) {
+        System.out.println("updatePart:  pname:"+part.getPname());
+        JSONResult jsonResult = new JSONResult();
+        if (part != null && part.getId() != null && part.getId() > 0) {
+            int result = partService.updatePart(part);
+            if (result > 0) {
+                jsonResult.setMsg("更新成功");
+                jsonResult.setStatus(200);
+                jsonResult.setData(part);
+            } else {
+                jsonResult.setMsg("更新失败");
+                jsonResult.setStatus(400);
+            }
+        } else {
+            jsonResult.setMsg("参数有误");
+            jsonResult.setStatus(300);
+        }
+
+        System.out.println(jsonResult.toString());
+        return jsonResult;
     }
 
     @RequestMapping(value = "/parts/{id}", method = RequestMethod.DELETE)
@@ -124,10 +207,12 @@ public class AdminController {
         return "redirect:/admin/modules" + part.getMid() + "/parts";
     }
 
-    // ********************** ********************** **********************
-    /* Page的CRUD */
+    // ********************* Page的CRUD **********************
+
+    @ResponseBody
     @RequestMapping(value = "/parts/{partId}/pages", method = RequestMethod.GET)
     public JSONResult listPage(@PathVariable(value = "partId") Integer partId) {
+        System.out.println("partId:"+partId);
         List<Page> pageList = pageService.listPageByPartId(partId);
         return JSONResult.ok(pageList);
     }

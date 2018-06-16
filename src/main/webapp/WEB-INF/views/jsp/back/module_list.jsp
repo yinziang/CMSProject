@@ -20,23 +20,23 @@
 <jsp:include page="header.jsp"></jsp:include>
 <div id="global">
     <div class="container-fluid cm-container-white">
-        <h2 style="margin-top:0;text-align: center">更新联系我们信息界面</h2>
+        <h2 style="margin-top:0;text-align: center">更新前端模块信息界面</h2>
     </div>
     <div class="container-fluid">
         <div class="row cm-fix-height">
 
             <div class="panel panel-default">
-                <div class="panel-heading">联系我们信息列表</div>
+                <div class="panel-heading" style="font-size: x-large">模块列表</div>
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>序号</th>
+                        <th>模块ID</th>
                         <th>名称</th>
                         <th></th>
                         <th></th>
                     </tr>
                     </thead>
-                    <tbody id="contact-body">
+                    <tbody id="module-body">
 
                     <c:forEach items="${moduleList}" var="module">
                         <tr>
@@ -44,6 +44,33 @@
                             <td><input style="width: 70%" type="text" name="mname${module.id}" id="mname${module.id}" value="${module.mname}" disabled></td>
                             <td><button type="button" class="btn-primary" onclick="clickUpdate(${module.id})">修改</button></td>
                             <td><button type="button" class="btn-primary" onclick="clickSave(${module.id})">保存</button></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" style="font-size: x-large">子模块列表</div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>模块ID</th>
+                        <th>父模块ID</th>
+                        <th>名称</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody id="part-body">
+
+                    <c:forEach items="${partsOfModule}" var="part">
+                        <tr>
+                            <th scope="row">${part.id}</th>
+                            <th scope="row">${part.mid}</th>
+                            <td><input style="width: 70%" type="text" name="pname${part.id}" id="pname${part.id}" value="${part.pname}" disabled></td>
+                            <td><button type="button" class="btn-primary" onclick="clickPartUpdate(${part.id})">修改</button></td>
+                            <td><button type="button" class="btn-primary" onclick="clickPartSave(${part.id}, ${part.mid})">保存</button></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -85,13 +112,53 @@
 
         $.ajax({
             type: 'POST',
-            url: '/admin/updateModules',
+            url: '/admin/updateModule',
             contentType: 'application/json;charset=utf-8',
             dataType: 'json',
             data: module,
             success: function(res) {
                 console.log(res);
                 $('#mname'+id).val(res.data.mname);
+            },
+            error: function(xhr, type) {
+                console.log("错误信息："+xhr.valueOf(), type);
+            }
+        });
+
+        $('input').attr("disabled",true);
+    }
+
+    function clickPartUpdate(id){
+        console.log(id)
+        $('input').attr("disabled",true);
+        var s = '#pname'+id;
+        console.log(s)
+        $(s).attr("disabled",false);
+    }
+
+    function clickPartSave(id, mid){
+        console.log("点击了子模块保存");
+        var part = {
+            id: id,
+            mid: mid,
+            pname: '',
+            description: ''
+        }
+
+        part.pname = $('#pname'+id).val();
+        console.log(part);
+
+        part = JSON.stringify(part);
+
+        $.ajax({
+            type: 'POST',
+            url: '/admin/updatePart',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            data: part,
+            success: function(res) {
+                console.log(res);
+                $('#pname'+id).val(res.data.pname);
             },
             error: function(xhr, type) {
                 console.log("错误信息："+xhr.valueOf(), type);

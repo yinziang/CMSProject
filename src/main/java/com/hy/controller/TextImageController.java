@@ -32,6 +32,19 @@ public class TextImageController {
     PageService pageService = null;
 
 
+    /**
+     * 关于我们模块信息
+     * @return
+     */
+    @RequestMapping(value = "/aboutWe", method = RequestMethod.GET)
+    public JSONResult getAboutWe() {
+        JSONResult jsonResult = new JSONResult();
+        jsonResult.setMsg("操作成功");
+        jsonResult.setStatus(200);
+        jsonResult.setData(generateData(Constants.ABOUT_SHENCHANG_MODULE_ID));
+        return jsonResult;
+    }
+
     /* "最新资讯"、"健康宣教"的信息查看 */
     @RequestMapping(value = "/healthEdu", method = RequestMethod.GET)
     public JSONResult getHealthEdu() {
@@ -114,7 +127,7 @@ public class TextImageController {
         JSONResult jsonResult = new JSONResult();
         jsonResult.setMsg("操作成功");
         jsonResult.setStatus(200);
-        jsonResult.setData(generateData(Constants.Center_MODULE_ID));
+        jsonResult.setData(generateData(Constants.CENTER_MODULE_ID));
         return jsonResult;
     }
 
@@ -123,36 +136,17 @@ public class TextImageController {
         JSONResult jsonResult = new JSONResult();
         jsonResult.setMsg("操作成功");
         jsonResult.setStatus(200);
-        jsonResult.setData(generateData(Constants.Solution_MODULE_ID));
+        jsonResult.setData(generateData(Constants.SOLUTION_MODULE_ID));
         return jsonResult;
     }
 
-    @RequestMapping(value = "/aboutWe", method = RequestMethod.GET)
-    public JSONResult getAboutWe() {
-        JSONResult jsonResult = new JSONResult();
-        jsonResult.setMsg("操作成功");
-        jsonResult.setStatus(200);
-        jsonResult.setData(generateData(Constants.ABOUT_US_MODULE_ID));
-        return jsonResult;
-    }
-//    public JSONResult getAboutWe() {
-//        List<AboutWe> aboutWeList = textImageService.listAboutWe();
-//        Map<List<String>, String> data = new LinkedHashMap<>();
-//        for (AboutWe aboutWe : aboutWeList) {
-//            data.put(Helper.stringToList(aboutWe.getImageUrl()), aboutWe.getItext());
-//        }
-//        // image_url单一图片
-//        /*Map<String, String> data = new LinkedHashMap<>();
-//        for (AboutWe aboutWe : aboutWeList) {
-//            data.put(aboutWe.getImageUrl(), aboutWe.getItext());
-//        }*/
-//        JSONResult jsonResult = new JSONResult();
-//        jsonResult.setMsg("操作成功");
-//        jsonResult.setStatus(200);
-//        jsonResult.setData(data);
-//        return jsonResult;
-//    }
 
+
+    /**
+     * 获取联系人信息
+     * @return
+     */
+    @ResponseBody
     @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public JSONResult getContact() {
         System.out.println("contact");
@@ -173,6 +167,11 @@ public class TextImageController {
         return jsonResult;
     }
 
+    /**
+     * 更新联系人信息
+     * @param contact
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/updateContact", method = RequestMethod.POST)
     public JSONResult updateContact(@RequestBody Contact contact) {

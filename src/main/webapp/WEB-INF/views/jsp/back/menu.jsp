@@ -28,10 +28,10 @@
                     <li class="cm-submenu">
                         <a class="sf-sign-info">关于肾畅 <span class="caret"></span></a>
                         <ul>
-                            <li><a href="ico-sf.html">肾畅简介</a></li>
-                            <li><a href="ico-md.html">肾畅实力</a></li>
-                            <li><a href="ico-fa.html">肾畅文化</a></li>
-                            <li><a href="ico-fa.html">社会责任</a></li>
+                            <li><a href="/admin/toBrief">肾畅简介</a></li>
+                            <li><a href="/admin/toShiLi">肾畅实力</a></li>
+                            <li><a href="/admin/toWenHua">肾畅文化</a></li>
+                            <li><a href="/admin/toZeRen">社会责任</a></li>
                         </ul>
                     </li>
                     <li class="cm-submenu">
