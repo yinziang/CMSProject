@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/css/material-design.css">
     <link rel="stylesheet" type="text/css" href="/css/small-n-flat.css">
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/summernote.css">
     <title>Clearmin template</title>
 </head>
 <body class="cm-no-transition cm-1-navbar">
@@ -33,18 +34,48 @@
             <div class="col-sm-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <img src="/img/sass-less.png" alt="Less support" class="img-responsive">
-                        <br>
-                        <p>图片</p>
+                        <img id="brief-img1" src="/img/sass-less.png" alt="Less support" class="img-responsive">
+                        <form style="margin-top: 10px;font-size: large">
+                            <div class="form-group">
+                                <input type="file" class="form-control-file" id="brief-img1-up" value="修改图片">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">修改内容</div>
+                    <div class="panel-body">
+                        <textarea class="form-control" id="brief-txt-1" rows="10"></textarea>
+                        <div class="form-group text-right" style="margin-top:20px">
+                            <button type="submit" class="btn btn-primary">保存更改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row cm-fix-height">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">修改内容</div>
+                    <div class="panel-body">
+                        <textarea class="form-control" id="brief-txt-2" rows="10"></textarea>
+                        <div class="form-group text-right" style="margin-top:20px">
+                            <button type="submit" class="btn btn-primary">保存更改</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <img src="/img/devices.png" alt="Responsive across devices" class="img-responsive">
-                        <br>
-                        <p>文字发的啥发的啥</p>
+                        <img id="brief-img2" src="/img/sass-less.png" alt="Less support" class="img-responsive">
+                        <form style="margin-top: 10px;font-size: large">
+                            <div class="form-group">
+                                <input type="file" class="form-control-file" id="brief-img2-up" value="修改图片">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -59,56 +90,48 @@
 <script src="/js/fastclick.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/clearmin.min.js"></script>
+<script src="/js/summernote.min.js"></script>
+<script src="/js/demo/notepad.js"></script>
 <script src="/js/demo/home.js"></script>
 
 <script>
     /**
      * 这个是联系我们对应的js
      */
-    $(function(){
+    $(function () {
         load();
     });
 
-    var contactId;
+    var data;
 
     /**
      * 加载时执行的函数
      */
-    function load(){
+    function load() {
         $.ajax({
-            type:'GET',
+            type: 'GET',
             dataType: 'json',
-            url: '/admin/parts/1/pages', // 数字1表示的是partId,
-            success: function(res){
+            url: '/admin/parts/1/pages', // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
+            success: function (res) {
                 console.log(res)
-                if(res.status == 200){
-                    contactId = res.data.id;
-                    document.getElementById("cname").value = res.data.cname;
-                    document.getElementById("ename").value = res.data.ename;
-                    document.getElementById("telphone").value = res.data.telphone;
-                    document.getElementById("email").value = res.data.email;
-                    document.getElementById("website").value = res.data.website;
-                    document.getElementById("location").value = res.data.location;
-                } else{
+                data = res.data;
+                if (res.status == 200) {
+                    console.log("操作成功")
+                    document.getElementById("brief-img1").src = res.data[0].imageUrl;
+                    document.getElementById("brief-img2").src = res.data[1].imageUrl;
+                    document.getElementById("brief-txt-1").value = res.data[0].content;
+                    document.getElementById("brief-txt-2").value = res.data[1].content;
+                } else {
                     console.log("操作失败")
                 }
             },
-            error: function(xhr, type) {
-                console.log("错误信息："+xhr.valueOf(), type)
+            error: function (xhr, type) {
+                console.log("错误信息：" + xhr.valueOf(), type)
             }
         });
     }
 
-    function clickUpdate(){
-        $('#cname').attr("disabled",false);
-        $('#ename').attr("disabled",false);
-        $('#email').attr("disabled",false);
-        $('#telphone').attr("disabled",false);
-        $('#website').attr("disabled",false);
-        $('#location').attr("disabled",false);
-    }
-
-    function clickSave(){
+    function clickSave() {
         console.log("点击了保存");
         var contact = {
             id: contactId,
@@ -136,7 +159,7 @@
             url: '/api/updateContact',
             contentType: 'application/json;charset=utf-8',
             data: contact,
-            success: function(res) {
+            success: function (res) {
                 console.log(res);
                 document.getElementById("cname").value = res.data.cname;
                 document.getElementById("ename").value = res.data.ename;
@@ -147,18 +170,18 @@
 
 
             },
-            error: function(xhr, type) {
-                console.log("错误信息："+xhr.valueOf(), type);
+            error: function (xhr, type) {
+                console.log("错误信息：" + xhr.valueOf(), type);
             }
         });
 
 
-        $('#cname').attr("disabled",true);
-        $('#ename').attr("disabled",true);
-        $('#email').attr("disabled",true);
-        $('#telphone').attr("disabled",true);
-        $('#website').attr("disabled",true);
-        $('#location').attr("disabled",true);
+        $('#cname').attr("disabled", true);
+        $('#ename').attr("disabled", true);
+        $('#email').attr("disabled", true);
+        $('#telphone').attr("disabled", true);
+        $('#website').attr("disabled", true);
+        $('#location').attr("disabled", true);
     }
 
 </script>

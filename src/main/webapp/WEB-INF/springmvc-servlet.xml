@@ -32,7 +32,7 @@
     <mvc:resources location="/fonts/" mapping="/fonts/**" />
     <!--允许images目录下所有文件可见 -->
     <mvc:resources location="/img/" mapping="/img/**" />
-
+    <mvc:resources location="/images/" mapping="/images/**" />
     <!--允许js目录下所有文件可见 -->
     <mvc:resources location="/js/" mapping="/js/**" />
 

@@ -6,6 +6,8 @@ package com.hy.utils;
  */
 public interface Constants {
 
+    Integer ABOUT_US_PART_ID = 1;
+
     /* 模块编号 */
     Integer ABOUT_SHENCHANG_MODULE_ID = 1;
     Integer SOLUTION_MODULE_ID = 2;
