@@ -27,7 +27,7 @@
 <%-- 主体部分显示的代码--%>
 <div id="global">
     <div class="container-fluid cm-container-white">
-        <h2 style="margin-top:0;text-align: center;">修改我们的简介界面</h2>
+        <h2 style="margin-top:0;text-align: center;">修改嘉鱼血透中心界面</h2>
     </div>
     <div class="container-fluid">
         <div class="row cm-fix-height">
@@ -73,7 +73,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <img id="brief-img2" src="/img/sass-less.png" alt="Less support" class="img-responsive">
-                        <form style="margin-top: 10px;font-size: large" action="/admin/uploadFile" enctype="multipart/form-data" method="post">
+                        <form style="margin-top: 10px;font-size: large"  action="/admin/uploadFile" enctype="multipart/form-data" method="post">
                             <div class="form-group">
                                 <input type="file" name="file" class="form-control-file" id="brief-img2-up" value="修改图片" disabled>
                                 <input type="txt" name="imageUrl" id="page2-image-url" hidden>
@@ -116,7 +116,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: '/admin/parts/1/pages', // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
+            url: '/admin/parts/9/pages', // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
             success: function (res) {
                 console.log(res)
                 data = res.data;

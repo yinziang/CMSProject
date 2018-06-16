@@ -37,7 +37,7 @@
                     <li class="cm-submenu">
                         <a class="sf-wrench-screwdriver">解决方案 <span class="caret"></span></a>
                         <ul>
-                            <li><a href="layouts-breadcrumb1.html">设计规划</a></li>
+                            <li><a href="/admin/toDesign">设计规划</a></li>
                             <li><a href="layouts-breadcrumb2.html">市场营销</a></li>
                             <li><a href="layouts-tabs.html">市场营销</a></li>
                             <li><a href="layouts-tabs.html">信息化系统</a></li>
@@ -46,10 +46,10 @@
                     <li class="cm-submenu">
                         <a class="sf-institution">血透中心 <span class="caret"></span></a>
                         <ul>
-                            <li><a href="layouts-breadcrumb1.html">嘉鱼康泰血透中心</a></li>
-                            <li><a href="layouts-breadcrumb2.html">通山康泰血透中心</a></li>
-                            <li><a href="layouts-tabs.html">阳新康泰血透中心</a></li>
-                            <li><a href="layouts-tabs.html">崇仁康泰血透中心</a></li>
+                            <li><a href="/admin/toJYCenter">嘉鱼康泰血透中心</a></li>
+                            <li><a href="/admin/toTSCenter">通山康泰血透中心</a></li>
+                            <li><a href="/admin/toYXCenter">阳新康泰血透中心</a></li>
+                            <li><a href="/admin/toCRCenter">崇仁康泰血透中心</a></li>
                         </ul>
                     </li>
                     <li><a href="notepad.html" class="sf-window-layout">最新资讯</a></li>

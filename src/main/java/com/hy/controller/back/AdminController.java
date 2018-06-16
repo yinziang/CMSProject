@@ -8,6 +8,7 @@ import com.hy.service.AdminService;
 import com.hy.service.ModuleService;
 import com.hy.service.PageService;
 import com.hy.service.PartService;
+import com.hy.utils.Helper;
 import com.hy.utils.JSONResult;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
@@ -37,6 +38,64 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
+
+    /**
+     * 文件上传
+     * @param file
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
+    public JSONResult uploadSummernoteImg(MultipartFile file, HttpServletRequest request) throws Exception {
+        System.out.println("uploadFile: file:"+(file == null));
+        JSONResult jsonResult = new JSONResult();
+
+        if (file != null && file.getName() != null && !file.isEmpty()) {
+            String FILE_TARGET = "target";
+            String basePath = request.getSession().getServletContext().getRealPath("/")+"images/upload/";
+            System.out.println("basePath:"+basePath);
+            System.out.println("contextPath:"+request.getSession().getServletContext().getServletContextName());
+
+            File dirPath = new File(basePath);
+            if (!dirPath.exists()) {
+                dirPath.mkdirs();
+            }
+
+            if (basePath.contains(FILE_TARGET)) {
+                basePath = basePath.substring(0,basePath.lastIndexOf(FILE_TARGET));
+            }
+            String dir = basePath;
+
+            try{
+                // 新图片的名称
+                String originFileName = file.getOriginalFilename();
+                String newFileName = Helper.getId() + originFileName.substring(originFileName.lastIndexOf("."));
+
+                // 新的图片
+                File newFile = new File(dir + newFileName);
+
+                // 将内存中的数据写入磁盘
+                file.transferTo(newFile);
+
+                jsonResult.setMsg("更新成功");
+                jsonResult.setStatus(200);
+                jsonResult.setData("/images/upload/"+newFileName);
+
+                return jsonResult;
+            }catch (Exception e) {
+                jsonResult.setMsg("summernote 图片上传失败");
+                jsonResult.setStatus(300);
+                jsonResult.setData("/images/upload/");
+                return jsonResult;
+            }
+        }
+
+        jsonResult.setMsg("summernote 图片上传失败");
+        jsonResult.setStatus(400);
+        jsonResult.setData("/images/upload/");
+        return jsonResult;
+    }
 
     /**
      * 文件上传
@@ -75,6 +134,53 @@ public class AdminController {
 
 
     // ********************** 页面跳转控制器 **********************
+
+    /**
+     * 跳转到解决方案中的设计规划界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toDesign")
+    public String toDesign(ModelMap map) {
+        return "/back/update_solu_design";
+    }
+
+    /**
+     * 跳转到嘉鱼血透中心界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toJYCenter")
+    public String toJYCenter(ModelMap map) {
+        return "/back/update_center_jy";
+    }
+    /**
+     * 跳转到通山血透中心界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toTSCenter")
+    public String toTSCenter(ModelMap map) {
+        return "/back/update_center_ts";
+    }
+    /**
+     * 跳转到阳新血透中心界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toYXCenter")
+    public String toYXCenter(ModelMap map) {
+        return "/back/update_center_yx";
+    }
+    /**
+     * 跳转到崇仁血透中心界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toCRCenter")
+    public String toCRCenter(ModelMap map) {
+        return "/back/update_center_cr";
+    }
 
     /**
      * 跳转到肾畅责任界面的控制器

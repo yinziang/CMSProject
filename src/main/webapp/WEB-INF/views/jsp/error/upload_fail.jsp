@@ -19,7 +19,7 @@
             if(x>0){
                 document.getElementById("sp").innerHTML=""+x+"后跳转到首页";  //每次设置的x的值都不一样了。
             }else{
-                location.href='/back/index';
+                location.href='/admin/index';
             }
         }
     </script>

@@ -73,7 +73,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <img id="brief-img2" src="/img/sass-less.png" alt="Less support" class="img-responsive">
-                        <form style="margin-top: 10px;font-size: large">
+                        <form style="margin-top: 10px;font-size: large" action="/admin/uploadFile" enctype="multipart/form-data" method="post">
                             <div class="form-group">
                                 <input type="file" name="file" class="form-control-file" id="brief-img2-up" value="修改图片" disabled>
                                 <input type="txt" name="imageUrl" id="page2-image-url" hidden>
