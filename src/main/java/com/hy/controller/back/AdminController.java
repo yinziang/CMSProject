@@ -122,7 +122,7 @@ public class AdminController {
             }
             //System.out.println("basePath:"+basePath);
 
-            String dir = basePath + "src/main/webapp/";
+            String dir = basePath;
             try{
                 // 新的图片
                 File newFile = new File(dir + imageUrl);
