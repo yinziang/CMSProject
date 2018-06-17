@@ -20,36 +20,30 @@
 <jsp:include page="header.jsp"></jsp:include>
 <div id="global">
     <div class="container-fluid cm-container-white">
-        <h2 style="margin-top:0;text-align: center">更新最新资讯界面</h2>
+        <h2 style="margin-top:0;text-align: center">更新健康宣教界面</h2>
     </div>
     <div class="container-fluid">
         <div class="row cm-fix-height">
-            <div class="form-group col" style="margin-top:20px;" >
-                <a class="btn btn-primary col-sm-4" style="width: 20%;margin: auto"
-                   href="/admin/toNewsAdd">新增</a>
-            </div>
-        </div>
-        <div class="row cm-fix-height">
 
             <div class="panel panel-default">
-                <div class="panel-heading">新闻列表</div>
+                <div class="panel-heading">健康宣教列表</div>
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th>序号</th>
-                            <th>标题</th>
-                            <th>创建时间</th>
-                            <th>最近修改时间</th>
-                            <th></th>
-                        </tr>
+                    <tr>
+                        <th>序号</th>
+                        <th>标题</th>
+                        <th>创建时间</th>
+                        <th>最近修改时间</th>
+                        <th></th>
+                    </tr>
                     </thead>
-                    <c:forEach items="${newsList}" var="news" varStatus="status">
+                    <c:forEach items="${healthEduList}" var="healthEdu" varStatus="status">
                         <tr>
                             <td>${status.index + 1}</td>
-                            <td>${news.title}</td>
-                            <td>${news.createAt}</td>
-                            <td>${news.updateAt}</td>
-                            <td><a href="./admin/news/${news.id}">修改</a></td>
+                            <td>${healthEdu.title}</td>
+                            <td>${healthEdu.createAt}</td>
+                            <td>${healthEdu.updateAt}</td>
+                            <td><a href="./admin/healthEdus/${healthEdu.id}">修改</a></td>
                         </tr>
                     </c:forEach>
 
@@ -68,8 +62,6 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/clearmin.min.js"></script>
 <script src="/js/demo/home.js"></script>
-
-
 
 </body>
 </html>

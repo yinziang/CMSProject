@@ -4,6 +4,7 @@ package com.hy.controller.back;
 import com.hy.domain.Module;
 import com.hy.domain.Page;
 import com.hy.domain.Part;
+import com.hy.domain.dto.BriefPage;
 import com.hy.service.AdminService;
 import com.hy.service.ModuleService;
 import com.hy.service.PageService;
@@ -11,8 +12,6 @@ import com.hy.service.PartService;
 import com.hy.utils.Constants;
 import com.hy.utils.Helper;
 import com.hy.utils.JSONResult;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,9 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -40,10 +38,45 @@ public class AdminController {
     AdminService adminService;
 
     /* 20180617 */
+
+    @RequestMapping(value = "/listHealthEdus", method = RequestMethod.GET)
+    public String listHealthEdus(ModelMap map) {
+        List<Page> healthEduList = pageService.listPageByPartId(Constants.HEALTH_EDUCATION_PART_ID);
+        List<BriefPage> briefPageList = new ArrayList<>();
+        BriefPage briefPage = null;
+        for(Page news : healthEduList) {
+            briefPage = new BriefPage(news.getId(), news.getTitle(),
+                    news.getDescription(), Helper.dateToString(news.getCreateAt()),
+                    Helper.dateToString(news.getUpdateAt()));
+            briefPageList.add(briefPage);
+        }
+        map.addAttribute("healthEduList", briefPageList);
+
+        System.out.println(healthEduList);
+        return "/back/list_health_edu";
+    }
+
+    @RequestMapping(value = "/healthEdus/{id}", method = RequestMethod.GET)
+    public String toHealthEduUpdate(@PathVariable(value = "id") Integer id,
+                               ModelMap map) {
+        map.addAttribute("healthEduId", id);
+        return "/back/update_health_edu";
+    }
+
+
     @RequestMapping(value = "/listNews", method = RequestMethod.GET)
     public String listNews(ModelMap map) {
         List<Page> newsList = pageService.listPageByPartId(Constants.NEWS_PART_ID);
-        map.addAttribute("newsList", newsList);
+        List<BriefPage> briefPageList = new ArrayList<>();
+        BriefPage briefPage = null;
+        for(Page news : newsList) {
+            briefPage = new BriefPage(news.getId(), news.getTitle(),
+                    news.getDescription(), Helper.dateToString(news.getCreateAt()),
+                    Helper.dateToString(news.getUpdateAt()));
+            briefPageList.add(briefPage);
+        }
+        map.addAttribute("newsList", briefPageList);
+
         System.out.println(newsList);
         return "/back/list_news";
     }
@@ -51,18 +84,61 @@ public class AdminController {
     @RequestMapping(value = "/news/{id}", method = RequestMethod.GET)
     public String toNewsUpdate(@PathVariable(value = "id") Integer id,
                                ModelMap map) {
-        Page news = pageService.getPageById(id);
-        map.addAttribute("news", news);
+        //Page news = pageService.getPageById(id);
+        //map.addAttribute("news", news);
+        map.addAttribute("newsId", id);
         return "/back/update_news";
     }
 
-    @RequestMapping(value = "/news/{id}", method = RequestMethod.PUT)
-    public JSONResult updateNews(@PathVariable(value = "id") Integer id,
-                                 Page news) {
-        //pageService.
-
-        return JSONResult.ok();
+    @RequestMapping("/toNewsAdd")
+    public String toNewsAdd() {
+        return "/back/add_news";
     }
+
+    @RequestMapping("/addNews")
+    public String newsAdd() {
+
+
+
+        return "redirect:/admin/listNews";
+    }
+
+    /**
+     * 缩略图上传
+     * @param file
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/uploadThumbnail", method = RequestMethod.POST)
+    public String uploadThumbnail(String imageUrl, MultipartFile file, HttpServletRequest request) throws Exception {
+        System.out.println("uploadFile:imageUrl:"+imageUrl+"  file:"+(file == null));
+
+        if (file != null && file.getName() != null && !file.isEmpty()) {
+            String FILE_TARGET = "target";
+            String basePath = request.getSession().getServletContext().getRealPath("/");
+
+            if (basePath.contains(FILE_TARGET)) {
+                basePath = basePath.substring(0,basePath.lastIndexOf(FILE_TARGET));
+            }
+            //System.out.println("basePath:"+basePath);
+
+            String dir = basePath + "src/main/webapp/";
+            try{
+                // 新的图片
+                File newFile = new File(dir + imageUrl);
+
+                // 将内存中的数据写入磁盘
+                file.transferTo(newFile);
+
+                return "/back/index";
+            }catch (Exception e) {
+                e.printStackTrace();
+                return "/error/upload_fail";
+            }
+        }
+        return "/error/upload_fail";
+    }
+
     /* 20180617 */
 
     /**
@@ -463,6 +539,13 @@ public class AdminController {
         return JSONResult.ok(pageList);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/pages/{id}", method = RequestMethod.GET)
+    public JSONResult getPage(@PathVariable(value = "id") Integer id) {
+        Page page = pageService.getPageById(id);
+        return JSONResult.ok(page);
+    }
+
     @RequestMapping(value = "/pages", method = RequestMethod.POST)
     public JSONResult addPage(Page page) {
         pageService.savePage(page);
@@ -475,6 +558,16 @@ public class AdminController {
         for (Page p : pages) {
             pageService.updatePage(p);
         }
+        return JSONResult.ok();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/updatePage", method = RequestMethod.PUT)
+    public JSONResult updatePage(@RequestBody Page page) {
+        page.setUpdateAt(new Date());
+        System.out.println(Helper.dateToString(new Date()));
+        pageService.updatePage(page);
+
         return JSONResult.ok();
     }
 

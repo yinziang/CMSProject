@@ -41,7 +41,7 @@ public class Helper {
         if (date == null) {
             return "";
         }
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         return formatter.format(date);
     }
 

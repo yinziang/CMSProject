@@ -53,7 +53,7 @@
                         </ul>
                     </li>
                     <li><a href="/admin/listNews" class="sf-window-layout">最新资讯</a></li>
-                    <li><a href="login.html" class="sf-bullhorn">健康宣教</a></li>
+                    <li><a href="/admin/listHealthEdus" class="sf-bullhorn">健康宣教</a></li>
                     <li><a href="login.html" class="sf-profile-group">肾友会</a></li>
                     <li><a href="/admin/toContact" class="sf-address-book">联系我们</a></li>
                 </ul>
