@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: huaxin
   Date: 2018/6/17
-  Time: 11:38
+  Time: 11:47
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,15 +13,13 @@
     <title>Home</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <link href="/css/font/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!--slider-->
-    <link href="/css/font/camera.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/css/font/foot.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/css/font/info.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/css/font/tools.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/css/font/newscard.css" rel="stylesheet" type="text/css" media="all"/>
-
+    <link href="css/camera.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/foot.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/info.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/tools.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/newscard.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -29,8 +27,6 @@
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-
 </head>
 
 <body>
@@ -137,71 +133,42 @@
                     <!-- /.container-fluid -->
                 </nav>
             </div>
-            <!-- #camera_wrap_1 -->
-            <div class="fluid_container">
-                <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
-                    <div data-thumb="images/thumbs/slide1.png" data-src="images/slider/slide1.png">
-                    </div>
-                    <div data-thumb="images/thumbs/slide2.png" data-src="images/slider/slide2.png">
-                    </div>
-                    <div data-thumb="images/thumbs/slide3.png" data-src="images/slider/slide3.png">
-                    </div>
-                    <!--<div data-thumb="images/thumbs/slider1.jpg" data-src="images/slider/slider4.jpg">-->
-                </div>
-            </div>
-            <!-- #camera_wrap_1 -->
-            <div class="clear"></div>
-        </div>
-
-        <!-- 我们的解决方案 -->
-        <div style="margin-top: 40px;">
-            <h3>
-                <center>我们的方案</center>
-            </h3>
-            <a href="shejigh.html"><img src="images/jiejuefangan.png"/></a>
+            <div><img src="images/jianjie-pic1.jpg"></div>
         </div>
 
         <!-- 我们的简介 -->
-        <div style="margin-top: 20px;" class="col-lg-12 col-md-12 col-sm-12" style="margin: 30px">
+        <div style="margin-top: 20px;">
             <h3>
-                <center>我们的简介</center>
+                <center id="title"><hr style="margin-top: 30px">通山康泰血透中心</center>
             </h3>
-            <div class="col-lg-9 col-md-8 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <a href="shengchangjianjie.html"><img src="images/jianjie.png"></a></div>
-            <div class="col-lg-3 col-md-4 col-sm-4" style="margin-top: 20px">
-                <p class="para" style="font-size: 15px">
-                    &nbsp;&nbsp;&nbsp;&nbsp;湖北肾畅泰康医疗科技有限公司，是一家专注于血液透析领域投资、运营和管理的公司.</p>
-                <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们依托于湖北康泰化成医疗管理有限公司，凭借着集团公司医疗管理的丰富经验，配合国内顶尖的高素质专业人才
-                    ，将完善的血液透析医疗服务提供给肾病患者，将血液透析整体解决方案提供给各大医疗机构。</p>
-                <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们是独立血透中心的投资者和经营者，我们是血透整体解决方案的提供者，我们是肾畅医疗。</p>
-            </div>
-        </div>
-
-        <!-- 最新资讯 -->
-        <div style="margin-top: 20px;" class="col-lg-12 col-md-12 col-sm-12 news-card" style="margin: 30px">
-            <h3>
-                <center>最新资讯</center>
-            </h3>
-            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n1.html"><img src="images/zuixinzx/zuixinzx-pic1.jpg"></a></p>
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n1.html">CSN2017 | 肾脏病学分会学术年会于武汉圆满闭幕</a></p>
-                <p>由中华医学会、中华医学会肾脏病学分会主办，湖北省医学会承办的中华医学会肾脏病学分会2017年学术年会在历经4天的学术交流后， 于9月16日在武汉洲际酒店国际会议中心圆满闭幕。</p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n2.html"><img src="images/zuixinzx/zuixinzx-pic2.jpg"></a></p>
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n2.html">肾友会活动——两岸携手，共抗肾病（延吉泌尿肾病医院）</a></p>
-                <p>近日，延边州首家社会办医血液透析中心——延吉泌尿肾病医院正式投入使用，该项目总投资1.5亿元， 是延边州规模最大的非公医疗机构。杏泰医疗有幸参与其中，与香港远东国际医疗投资集团合作，
-                    力求为延边的患者提供更好的医疗服务</p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n3.html"><img src="images/zuixinzx/zuixinzx-pic3.jpg"></a></p>
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n3.html">2016省中“仁和”心脑肾高峰对话论坛</a></p>
-                <p>浙江省中医院于近日以“溯源·聚慧·共进”为主题，举办了“2016省中·仁和整合医学论坛”， 肾畅医疗有幸参与其中，并邀请台大医院新竹分院院长洪冠予教授出席了分论坛——心脑肾高峰对话论坛。</p>
+            <!--<div class="content-page">-->
+            <div class="col-lg-12 col-md-12 col-sm-12 zixun">
+                <div class="col-lg-9 col-md-9 col-sm-9" style="margin-top: 20px;margin-bottom: 20px"><img id="brief-img1"
+                                                                                                          src="images/xt-ts-pic1.png"></div>
+                <div id="brief-txt-1" class="col-lg-3 col-md-3 col-sm-3" style="margin-top: 20px">
+                    <h3>通山县医养中心</h3>
+                    <p class="para" style="font-size: 15px">
+                        &nbsp;&nbsp;&nbsp;&nbsp;通山县医养中心（通山县城市福利院）是咸宁市首家融医疗与养老院为一体的公建民宿、医养结合的专业医养机构。全院占地面积58.77亩，规划建筑面积26000平方米，总投资1.2亿元。</p>
+                </div>
             </div>
 
+            <div class="col-lg-12 col-md-12 col-sm-12 zixun" >
+
+                <div id="brief-txt-2" class="col-lg-3 col-md-3 col-sm-3" style="margin-top: 20px">
+                    <h3>通山康泰医院</h3>
+                    <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;通山县康泰医院是一所集医疗、保健于一体的非营利性二级综合医院，建筑面积共计6500平方米。</p>
+                    <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;医院开设有心血管、内分泌、消化内科、外科、骨科、结石科、妇产科、儿科、眼耳鼻喉科、口腔科、康复科、血液透析中心、
+                        中医科等临床科室以及检验、放射（含CT室）、彩超、心电图、胃镜室等医技科室。</p>
+                    <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;医院首期开房病床100张，现有员工145人，其中省市专家、教授团队16人，主治医师及其他临床专业人员93余人。为通山县城镇职工
+                        医保、居民医保、农村合作医疗定点医院及同济医院、湖北省人民医院远程会诊定点医院。</p>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9" style="margin-top: 20px;margin-bottom: 20px">
+                    <img id="brief-img2" src="images/xt-ts-pic2.png">
+                </div>
+            </div>
+
+            <!--</div>-->
         </div>
-        <p style="font-size: 18px;margin-left: 20px"><a href="zuixinzixun.html">更多资讯>></a></p>
-        <!-- end#最新资讯 -->
 
         <!-- 工具栏 -->
         <div class="tools col-lg-12 col-md-12 col-sm-12">
@@ -272,32 +239,47 @@
         <div id="copyright">Designed by 华鑫 in 华中科技大学&nbsp;&nbsp;&nbsp;&nbsp;</div>
     </div>
 </footer>
-
+<!--js 脚本-->
 <script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.0.0rc1.js"></script>
+<script type='text/javascript' src='js/jquery.mobile.customized.min.js'></script>
+<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-<script type='text/javascript' src='/js/font/jquery.mobile.customized.min.js'></script>
-<script type='text/javascript' src='/js/font/jquery.easing.1.3.js'></script>
-<script type='text/javascript' src='/js/font/camera.min.js'></script>
-<script type='text/javascript' src='/js/font/tool.js'></script>
-
+<script type='text/javascript' src='js/tool.js'></script>
 <script>
-    jQuery(function () {
-
-        jQuery('#camera_wrap_1').camera({
-            thumbnails: true
-        });
-
-        jQuery('#camera_wrap_2').camera({
-            height: '400px',
-            loader: 'bar',
-            pagination: true,
-            thumbnails: true
-        });
+    $(function(){
+        load();
     });
+
+    /**
+     * 加载时执行的函数
+     */
+    function load(){
+        $.ajax({
+            type:'GET',
+            dataType: 'json',
+            url: 'http://localhost:8080/admin/parts/10/pages',
+            success: function(res){
+                console.log(res)
+                if(res.status == 200){
+                    console.log("操作成功")
+                    document.getElementById("title").src = res.data[0].title;
+                    document.getElementById("brief-img1").src = res.data[0].imageUrl;
+                    document.getElementById("brief-img2").src = res.data[1].imageUrl;
+                    document.getElementById("brief-txt-1").innerHTML = res.data[0].content;
+                    document.getElementById("brief-txt-2").innerHTML = res.data[1].content;
+                } else{
+                    alert("操作失败")
+                }
+            },
+            error: function(xhr, type) {
+                console.log("错误信息："+xhr.valueOf(), type)
+            }
+        });
+    }
 </script>
 </body>
 

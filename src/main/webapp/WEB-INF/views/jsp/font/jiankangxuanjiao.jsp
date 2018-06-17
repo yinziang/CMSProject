@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: huaxin
   Date: 2018/6/17
-  Time: 11:38
+  Time: 11:53
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,24 +13,20 @@
     <title>Home</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <link href="/css/font/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!--slider-->
-    <link href="/css/font/camera.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/css/font/foot.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/css/font/info.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/css/font/tools.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/css/font/newscard.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/camera.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/foot.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/info.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/tools.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/newscard.css" rel="stylesheet" type="text/css" media="all"/>
 
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-
 </head>
 
 <body>
@@ -137,71 +133,69 @@
                     <!-- /.container-fluid -->
                 </nav>
             </div>
-            <!-- #camera_wrap_1 -->
-            <div class="fluid_container">
-                <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
-                    <div data-thumb="images/thumbs/slide1.png" data-src="images/slider/slide1.png">
-                    </div>
-                    <div data-thumb="images/thumbs/slide2.png" data-src="images/slider/slide2.png">
-                    </div>
-                    <div data-thumb="images/thumbs/slide3.png" data-src="images/slider/slide3.png">
-                    </div>
-                    <!--<div data-thumb="images/thumbs/slider1.jpg" data-src="images/slider/slider4.jpg">-->
+            <div><img src="images/jiankangxj-pic1.png"></div>
+        </div>
+
+        <!-- 健康宣教 -->
+        <div style="margin-top: 20px;">
+            <h3>
+                <center><hr style="margin-top: 30px">HEALTH 健康宣教</center>
+            </h3>
+            <div class="col-lg-12 col-md-12 col-sm-12 news-card zixun">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <a href="jiankangxj_a1.html" ><img src="images/jiankangxj/jiankangxj-pic1.png"></a>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                    <p><a href="jiankangxj_a1.html">健康宣教</a></p>
+                    <p>编辑时间：2018-06-10 22:22:22</p>
+                    <p>血透病人常用药物知识简介抗凝剂：如肝素，主要的作用是使血液透析正常运行，并且不影响透析膜的生物相容性，
+                        不影响全身凝血系统，避免出血并发症发生，主要不良反应是用药过多导致自发性出血，如皮下淤血、血肿等，
+                        患者首先应准确测量体重，这样能使医生根据体重正确使用甘肃两，另外有出血时，如口腔出血、血尿、便血、黑...</p>
                 </div>
             </div>
-            <!-- #camera_wrap_1 -->
-            <div class="clear"></div>
-        </div>
+            <hr class="hr-line">
+            <div class="col-lg-12 col-md-12 col-sm-12 news-card">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <a href="jiankangxj_a2.html"><img src="images/jiankangxj/jiankangxj-pic2.png"></a>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                    <p><a href="jiankangxj_a2.html">日常护理</a></p>
+                    <p>编辑时间：2018-06-10 22:22:22</p>
+                    <p>平日皮肤的护理洗澡时不要将肥皂直接涂在皮肤上，洗完澡后可擦拭乳液剪短指甲可避免抓破皮肤，
+                        预防感染局部瘙痒时可用冰敷或涂些清凉油若皮肤瘙痒难耐时，请医师开口服药或外用药瘙痒厉害时，
+                        注意检查血液钙磷及甲状腺激素水平以维持正常透析病人如何纾解情绪压力当意志消沉，心情沮丧时，
+                        可将内心的感受表达出来，以减轻内...</p>
+                </div>
 
-        <!-- 我们的解决方案 -->
-        <div style="margin-top: 40px;">
-            <h3>
-                <center>我们的方案</center>
-            </h3>
-            <a href="shejigh.html"><img src="images/jiejuefangan.png"/></a>
+            </div>
+            <hr class="hr-line">
+            <div class="col-lg-12 col-md-12 col-sm-12 news-card">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <a href="jiankangxj_a3.html"><img src="images/jiankangxj/jiankangxj-pic3.png"></a>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                    <p><a href="jiankangxj_a3.html">透析病人血管通路的护理</a></p>
+                    <p>编辑时间：2018-06-10 22:22:22</p>
+                    <p>透析病人血管通路的护理——如何保护我的血管透析前先清洁血管通路皮肤切勿在透析中触摸或抓痒穿刺处的皮肤，
+                        以免造成污染或使针滑落，影响透析安全经常更换打针的位置没避免同一位置的重复穿刺，
+                        因易导致血管内皮损伤引起纤维化狭窄或形成假性动脉瘤避免过度脱水、血压太低、出血或腹泻等情况，以...</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div class="col-lg-12 col-md-12 col-sm-12 news-card">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <a href="jiankangxj_a4.html"><img src="images/jiankangxj/jiankangxj-pic4.png"></a>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                    <p><a href="jiankangxj_a4.html">饮食管理</a></p>
+                    <p>编辑时间：2018-06-10 22:22:22</p>
+                    <p>透析病人的饮食原则足够的热量由于肾友在饮食上有一些限制，常会这个不敢吃那个不敢吃，热量摄入充足可防止组织蛋白质分解，
+                        提高蛋白质的利用率。但如果热量摄取不足，身体将逐渐消瘦，进而使得抵抗力变差，甚至产生更多肾毒素。
+                        因此，充足的热量摄取对肾友来说是非常重要的。适量的蛋白质摄取肾友在透析过程中容易有氨基酸...</p>
+                </div>
+            </div>
+            <hr class="hr-line">
         </div>
-
-        <!-- 我们的简介 -->
-        <div style="margin-top: 20px;" class="col-lg-12 col-md-12 col-sm-12" style="margin: 30px">
-            <h3>
-                <center>我们的简介</center>
-            </h3>
-            <div class="col-lg-9 col-md-8 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <a href="shengchangjianjie.html"><img src="images/jianjie.png"></a></div>
-            <div class="col-lg-3 col-md-4 col-sm-4" style="margin-top: 20px">
-                <p class="para" style="font-size: 15px">
-                    &nbsp;&nbsp;&nbsp;&nbsp;湖北肾畅泰康医疗科技有限公司，是一家专注于血液透析领域投资、运营和管理的公司.</p>
-                <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们依托于湖北康泰化成医疗管理有限公司，凭借着集团公司医疗管理的丰富经验，配合国内顶尖的高素质专业人才
-                    ，将完善的血液透析医疗服务提供给肾病患者，将血液透析整体解决方案提供给各大医疗机构。</p>
-                <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们是独立血透中心的投资者和经营者，我们是血透整体解决方案的提供者，我们是肾畅医疗。</p>
-            </div>
-        </div>
-
-        <!-- 最新资讯 -->
-        <div style="margin-top: 20px;" class="col-lg-12 col-md-12 col-sm-12 news-card" style="margin: 30px">
-            <h3>
-                <center>最新资讯</center>
-            </h3>
-            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n1.html"><img src="images/zuixinzx/zuixinzx-pic1.jpg"></a></p>
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n1.html">CSN2017 | 肾脏病学分会学术年会于武汉圆满闭幕</a></p>
-                <p>由中华医学会、中华医学会肾脏病学分会主办，湖北省医学会承办的中华医学会肾脏病学分会2017年学术年会在历经4天的学术交流后， 于9月16日在武汉洲际酒店国际会议中心圆满闭幕。</p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n2.html"><img src="images/zuixinzx/zuixinzx-pic2.jpg"></a></p>
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n2.html">肾友会活动——两岸携手，共抗肾病（延吉泌尿肾病医院）</a></p>
-                <p>近日，延边州首家社会办医血液透析中心——延吉泌尿肾病医院正式投入使用，该项目总投资1.5亿元， 是延边州规模最大的非公医疗机构。杏泰医疗有幸参与其中，与香港远东国际医疗投资集团合作，
-                    力求为延边的患者提供更好的医疗服务</p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n3.html"><img src="images/zuixinzx/zuixinzx-pic3.jpg"></a></p>
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n3.html">2016省中“仁和”心脑肾高峰对话论坛</a></p>
-                <p>浙江省中医院于近日以“溯源·聚慧·共进”为主题，举办了“2016省中·仁和整合医学论坛”， 肾畅医疗有幸参与其中，并邀请台大医院新竹分院院长洪冠予教授出席了分论坛——心脑肾高峰对话论坛。</p>
-            </div>
-
-        </div>
-        <p style="font-size: 18px;margin-left: 20px"><a href="zuixinzixun.html">更多资讯>></a></p>
-        <!-- end#最新资讯 -->
 
         <!-- 工具栏 -->
         <div class="tools col-lg-12 col-md-12 col-sm-12">
@@ -273,32 +267,16 @@
     </div>
 </footer>
 
+<!--js 脚本-->
 <script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.0.0rc1.js"></script>
+<script type='text/javascript' src='js/jquery.mobile.customized.min.js'></script>
+<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-<script type='text/javascript' src='/js/font/jquery.mobile.customized.min.js'></script>
-<script type='text/javascript' src='/js/font/jquery.easing.1.3.js'></script>
-<script type='text/javascript' src='/js/font/camera.min.js'></script>
-<script type='text/javascript' src='/js/font/tool.js'></script>
-
-<script>
-    jQuery(function () {
-
-        jQuery('#camera_wrap_1').camera({
-            thumbnails: true
-        });
-
-        jQuery('#camera_wrap_2').camera({
-            height: '400px',
-            loader: 'bar',
-            pagination: true,
-            thumbnails: true
-        });
-    });
-</script>
+<script type='text/javascript' src='js/tool.js'></script>
 </body>
 
 </html>

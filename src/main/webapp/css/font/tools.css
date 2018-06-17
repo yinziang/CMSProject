@@ -1,0 +1,22 @@
+.tools {
+    width:100%;
+    height: auto;
+    background-color:#00a097 ;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 40px;
+}
+
+.tools-title {
+    font-size: 20px;
+    color: white;
+}
+
+.tools-content{
+    font-size: 15px;
+    color: white;
+}
+
+.tools-content a{
+    color: white;
+}
