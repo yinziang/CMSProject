@@ -36,7 +36,7 @@ body {
 .wrap{
 	margin:0 auto;
 	width:80%;
-	background: url('../images/bg1.png');
+	background: url('/images/font/bg1.png');
 }
 .wrap_inner{
 	padding:0 4%;
@@ -175,7 +175,7 @@ h2{
 .text1-nav ul li:before{
 	margin-top: 12px;
 	margin-right: 10px;
-	content: url('../images/arrow.png');
+	content: url('/images/font/arrow.png');
 	float: left;
 }
 .text1-nav ul li a:hover{

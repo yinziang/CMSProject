@@ -258,7 +258,7 @@ public class AdminController {
      * @param map
      * @return
      */
-    @RequestMapping("/toLogin")
+    @RequestMapping("")
     public String toLogin(ModelMap map) {
         return "/back/login";
     }

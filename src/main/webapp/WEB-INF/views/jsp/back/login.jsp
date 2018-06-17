@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
     <title>登录界面</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -15,7 +16,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <form class="form-horizontal" action="./admin/login" method="post">
+            <form class="form-horizontal" action="/admin/login" method="post">
                 <span class="heading">登录界面</span>
                 <div class="form-group">
                     <input type="text" class="form-control" name="username" id="inputEmail3" placeholder="请输入用户名" value="admin">
