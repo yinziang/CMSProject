@@ -31,9 +31,10 @@ public interface Constants {
     Integer YANGXIN_CENTER_PART_ID = 11;
     Integer CHONGREN_CENTER_PART_ID = 12;
 
+    Integer NEWS_PART_ID = 13;
+    Integer HEALTH_EDUCATION_PART_ID = 14;
 
-    Integer NEWS_PART_ID = 0;
-    Integer HEALTH_EDUCATION_PART_ID = 11;
+
     Integer INDEX_MAX_NEWS_NUMBER = 3; // 首页轮播广告最大个数
 
     String ERROR_MESSAGE = "遇到麻烦了，请等喘口气再操作！";
