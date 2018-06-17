@@ -20,11 +20,11 @@
 <%-- 主体部分显示的代码--%>
 <div id="global">
     <div class="container-fluid cm-container-white">
-        <h2 style="margin-top:0;text-align: center;">修改最新资讯界面</h2>
+        <h2 style="margin-top:0;text-align: center;">修改健康宣教界面</h2>
     </div>
     <div class="container-fluid">
         <div class="panel panel-default">
-            <div class="panel-heading">新闻修改</div>
+            <div class="panel-heading">宣教修改</div>
             <div class="panel-body">
                 <div class="form-group">
                     <label>Title</label>
@@ -48,7 +48,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
 
     </div>
@@ -63,12 +62,8 @@
 <script src="/js/clearmin.min.js"></script>
 <script src="/js/summernote.min.js"></script>
 <script src="/js/demo/notepad.js"></script>
-<%--<script src="/js/demo/home.js"></script>--%>
 
 <script>
-    /**
-     * 这个是联系我们对应的js
-     */
     $(function () {
         load();
 
@@ -83,8 +78,8 @@
 
     var data;
 
-    var newsId = ${requestScope.newsId};
-    console.log(newsId);
+    var healthEduId = ${requestScope.healthEduId};
+    console.log(healthEduId);
 
     //ajax上传图片
     function sendFile(file,editor,welEditable) {
@@ -112,11 +107,11 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: ('/admin/pages/' + newsId), // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
+            url: ('/admin/pages/' + healthEduId), // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
             success: function (res) {
-                console.log(res);
+                console.log(res)
                 data = res.data;
-                console.log(data);
+                console.log(data)
                 if (res.status == 200) {
                     console.log("请求数据，操作成功")
                     document.getElementById("title").value = res.data.title;
@@ -171,4 +166,3 @@
 
 </body>
 </html>
-

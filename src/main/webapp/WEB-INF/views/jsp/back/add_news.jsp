@@ -24,31 +24,31 @@
     </div>
     <div class="container-fluid">
         <div class="panel panel-default">
-            <div class="panel-heading">新闻修改</div>
+            <div class="panel-heading">新闻增加</div>
             <div class="panel-body">
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" id="title" class="form-control" placeholder="Enter title" disabled>
+                    <input type="text" id="title" class="form-control" placeholder="Enter title">
                 </div>
                 <label>Content</label>
                 <div id="summernote"></div>
-                <div class="form-group text-right" style="margin-top:20px">
-                    <button type="submit" class="btn btn-default" onclick="clickUpdate()">启用修改</button>
-                    <button id="saveBtn" type="submit" class="btn btn-primary" onclick="clickSave()" disabled>保存修改</button>
-                </div>
+                <br />
                 <label>Thumbnail</label>
                 <div class="panel-body">
-                    <img id="brief-img" src="/img/sass-less.png" alt="Less support" class="img-responsive">
-                    <form style="margin-top: 10px;font-size: large" action="/admin/uploadFile" enctype="multipart/form-data" method="post">
+                    <img id="brief-img1" src="/img/sass-less.png" alt="Less support" class="img-responsive">
+                    <form style="margin-top: 10px;font-size: large" action="/admin/uploadThumbnail" enctype="multipart/form-data" method="post">
                         <div class="form-group">
-                            <input type="file" name="file" class="form-control-file" id="brief-img-up" value="修改图片" />
-                            <input type="txt" name="imageUrl" id="page-image-url" hidden />
-                            <input type="submit" id="page-image-up" value="上传" />
+                            <input type="file" name="file" class="form-control-file" id="brief-img1-up" value="修改图片" disabled>
+                            <input type="txt" name="imageUrl" id="page1-image-url" hidden>
+                            <input type="submit" id="page1-image-up" value="上传" disabled/>
                         </div>
                     </form>
                 </div>
+                <div class="form-group text-right" style="margin-top:20px">
+                    <button id="saveBtn" type="submit" class="btn btn-primary"
+                            onclick="clickSave()">保存</button>
+                </div>
             </div>
-
         </div>
 
     </div>
@@ -70,7 +70,7 @@
      * 这个是联系我们对应的js
      */
     $(function () {
-        load();
+        // load();
 
         $('#summernote').summernote({
             lang: 'zh-CN', // default: 'en-US'
@@ -82,9 +82,6 @@
     });
 
     var data;
-
-    var newsId = ${requestScope.newsId};
-    console.log(newsId);
 
     //ajax上传图片
     function sendFile(file,editor,welEditable) {
@@ -105,38 +102,32 @@
         });
     }
 
-    /**
-     * 加载时执行的函数
-     */
-    function load() {
-        $.ajax({
-            type: 'GET',
-            dataType: 'json',
-            url: ('/admin/pages/' + newsId), // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
-            success: function (res) {
-                console.log(res);
-                data = res.data;
-                console.log(data);
-                if (res.status == 200) {
-                    console.log("请求数据，操作成功")
-                    document.getElementById("title").value = res.data.title;
-                    document.getElementById("brief-img").src = res.data.thumbnail;
-                    document.getElementById("page-image-url").value = res.data.thumbnail;
-                    $('#summernote').code(res.data.content);
-                } else {
-                    console.log("操作失败")
-                }
-            },
-            error: function (xhr, type) {
-                console.log("错误信息：" + xhr.valueOf(), type)
-            }
-        });
-    }
+    // /**
+    //  * 加载时执行的函数
+    //  */
+    // function load() {
+    //     $.ajax({
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         url: ('/admin/pages/' + newsId), // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
+    //         success: function (res) {
+    //             console.log(res)
+    //             data = res.data;
+    //             console.log(data)
+    //             if (res.status == 200) {
+    //                 console.log("请求数据，操作成功")
+    //                 document.getElementById("title").value = res.data.title;
+    //                 $('#summernote').code(res.data.content);
+    //             } else {
+    //                 console.log("操作失败")
+    //             }
+    //         },
+    //         error: function (xhr, type) {
+    //             console.log("错误信息：" + xhr.valueOf(), type)
+    //         }
+    //     });
+    // }
 
-    function clickUpdate() {
-        $('#title').attr("disabled",false);
-        $('#saveBtn').attr("disabled",false);
-    }
 
     function clickSave() {
         console.log("点击了保存:date:"+data);

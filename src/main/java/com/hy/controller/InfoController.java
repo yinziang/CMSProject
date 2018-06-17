@@ -3,16 +3,11 @@ package com.hy.controller;
 import com.hy.domain.Module;
 import com.hy.domain.Page;
 import com.hy.domain.Part;
-import com.hy.domain.dto.BriefNews;
-import com.hy.service.InfoService;
 import com.hy.service.ModuleService;
 import com.hy.service.PageService;
 import com.hy.service.PartService;
-import com.hy.utils.Constants;
 import com.hy.utils.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

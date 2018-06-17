@@ -1,14 +1,25 @@
 package com.hy.domain.dto;
 
 
-public class BriefNews {
+public class BriefPage {
 
     private Integer id;
     private String title;
     private String thumbnail;
     private String description;
+    private String createAt;
+    private String updateAt;
 
-    protected BriefNews() {}
+    protected BriefPage() {}
+
+    public BriefPage(Integer id, String title, String description, String createAt, String updateAt) {
+        this.id = id;
+        this.title = title;
+        this.thumbnail = thumbnail;
+        this.description = description;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+    }
 
     public Integer getId() {
         return id;
@@ -40,5 +51,21 @@ public class BriefNews {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(String createAt) {
+        this.createAt = createAt;
+    }
+
+    public String getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(String updateAt) {
+        this.updateAt = updateAt;
     }
 }

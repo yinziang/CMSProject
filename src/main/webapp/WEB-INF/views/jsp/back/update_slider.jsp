@@ -53,20 +53,20 @@
                     <%--</div>--%>
                 <%--</div>--%>
             <%--</c:forEach>--%>
-            <div class="col-sm-4">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <img id="brief-img1" src="/img/sass-less.png" alt="Less support" class="img-responsive">
-                        <form style="margin-top: 10px;font-size: large" action="/admin/uploadFile" enctype="multipart/form-data" method="post">
-                            <div class="form-group">
-                                <input type="file" name="file" class="form-control-file" id="brief-img1-up" value="修改图片" disabled>
-                                <input type="txt" name="imageUrl" id="page1-image-url" hidden>
-                                <input type="submit" id="page1-image-up" value="上传" disabled/>
-                            </div>
-                        </form>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <img id="brief-img1" src="/img/sass-less.png" alt="Less support" class="img-responsive">
+                            <form style="margin-top: 10px;font-size: large" action="/admin/uploadFile" enctype="multipart/form-data" method="post">
+                                <div class="form-group">
+                                    <input type="file" name="file" class="form-control-file" id="brief-img1-up" value="修改图片" disabled>
+                                    <input type="txt" name="imageUrl" id="page1-image-url" hidden>
+                                    <input type="submit" id="page1-image-up" value="上传" disabled/>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div class="col-sm-4">
                     <div class="panel panel-default">
                         <div class="panel-body">

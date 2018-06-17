@@ -15,6 +15,8 @@ public class Page {
 
     private Date createAt;
 
+    private Date updateAt;
+
     private String imageUrl;
 
     private String thumbnail;
@@ -67,6 +69,14 @@ public class Page {
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
+    }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Date updateAt) {
+        this.updateAt = updateAt;
     }
 
     public String getImageUrl() {
