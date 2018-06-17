@@ -24,13 +24,9 @@
             <!-- #camera_wrap_1 -->
             <div class="fluid_container">
                 <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
-                    <div data-thumb="images/thumbs/slide1.png" data-src="/images/font/slider/slide1.png">
-                    </div>
-                    <div data-thumb="images/thumbs/slide2.png" data-src="/images/font/slider/slide2.png">
-                    </div>
-                    <div data-thumb="images/thumbs/slide3.png" data-src="/images/font/slider/slide3.png">
-                    </div>
-                    <!--<div data-thumb="images/thumbs/slider1.jpg" data-src="images/slider/slider4.jpg">-->
+                    <div id="slide1" data-thumb="/images/font/thumbs/slide1.png" data-src="/images/font/slider/slide1.png"></div>
+                    <div id="slide2" data-thumb="/images/font/thumbs/slide2.png" data-src="/images/font/slider/slide2.png"></div>
+                    <div id="slide3" data-thumb="/images/font/thumbs/slide3.png" data-src="/images/font/slider/slide3.png"></div>
                 </div>
             </div>
             <!-- #camera_wrap_1 -->
@@ -42,7 +38,7 @@
             <h3>
                 <center>我们的方案</center>
             </h3>
-            <a href="/font/toDesign"><img src="/images/font/jiejuefangan.png"/></a>
+            <a href="/font/toDesign"><img id="solution" src="images/page/solution.png"/></a>
         </div>
 
         <!-- 我们的简介 -->
@@ -50,9 +46,9 @@
             <h3>
                 <center>我们的简介</center>
             </h3>
-            <div class="col-lg-9 col-md-8 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <a href="/font/toBrief"><img src="/images/font/jianjie.png"></a></div>
-            <div class="col-lg-3 col-md-4 col-sm-4" style="margin-top: 20px">
+            <div class="col-lg-8 col-md-8 col-sm-8" style="margin-top: 20px;margin-bottom: 20px">
+                <a href="/font/toBrief"><img id="aboutUs-img" src="images/page/about_us.jpg"></a></div>
+            <div id="aboutUs-content" class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px">
                 <p class="para" style="font-size: 15px">
                     &nbsp;&nbsp;&nbsp;&nbsp;湖北肾畅泰康医疗科技有限公司，是一家专注于血液透析领域投资、运营和管理的公司.</p>
                 <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们依托于湖北康泰化成医疗管理有限公司，凭借着集团公司医疗管理的丰富经验，配合国内顶尖的高素质专业人才
@@ -96,6 +92,34 @@
 <jsp:include page="WEB-INF/views/jsp/font/foot.jsp"></jsp:include>
 
 <script>
+
+    $(function(){
+        load();
+    });
+
+    /**
+     * 加载时执行的函数
+     */
+    function load(){
+        $.ajax({
+            type:'GET',
+            dataType: 'json',
+            url: 'http://localhost:8080/index',
+            success: function(res){
+                console.log(res)
+                if(res.status == 200){
+                    console.log("操作成功")
+                    document.getElementById("aboutUs-content").innerHTML = res.data.aboutUs.Content;
+                } else{
+                    alert("操作失败")
+                }
+            },
+            error: function(xhr, type) {
+                console.log("错误信息："+xhr.valueOf(), type)
+            }
+        });
+    }
+
     jQuery(function () {
 
         jQuery('#camera_wrap_1').camera({
@@ -109,6 +133,7 @@
             thumbnails: true
         });
     });
+
 </script>
 </body>
 

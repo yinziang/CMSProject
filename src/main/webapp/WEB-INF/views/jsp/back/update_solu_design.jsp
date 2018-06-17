@@ -58,7 +58,7 @@
 <script src="/js/clearmin.min.js"></script>
 <script src="/js/summernote.min.js"></script>
 <script src="/js/demo/notepad.js"></script>
-<%--<script src="/js/demo/home.js"></script>--%>
+<script src="/js/demo/home.js"></script>
 
 <script>
     /**

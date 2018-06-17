@@ -30,9 +30,9 @@
             </h3>
             <div class="content-page">
                 <div class="col-lg-12 col-md-12 col-sm-12 zixun">
-                    <div class="col-lg-9 col-md-9 col-sm-9" style="margin-top: 20px;margin-bottom: 20px">
+                    <div class="col-lg-8 col-md-8 col-sm-8" style="margin-top: 20px;margin-bottom: 20px">
                         <img id="brief-img1" src="images/shili-pic1.png"></div>
-                    <div id="brief-txt-1" class="col-lg-3 col-md-3 col-sm-3" style="margin-top: 20px">
+                    <div id="brief-txt-1" class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px">
                         <p class="para" style="font-size: 15px">
                             &nbsp;&nbsp;&nbsp;&nbsp;湖北肾畅泰康医疗科技有限公司，是一家专注于血液透析领域投资、运营和管理的公司.</p>
                         <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们依托于湖北康泰化成医疗管理有限公司，凭借着集团公司医疗管理的丰富经验，配合国内顶尖的高素质专业人才
@@ -43,7 +43,7 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12 zixun">
 
-                    <div id="brief-txt-2" class="col-lg-3 col-md-4 col-sm-4" style="margin-top: 20px">
+                    <div id="brief-txt-2" class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px">
                         <p class="para" style="font-size: 15px">
                             &nbsp;&nbsp;&nbsp;&nbsp;我们为患者和医疗机构提供最专业最优质的服务，是肾畅医疗存在的价值，而服务体系的专业与完善，更是我们时刻谨记在心的责任。</p>
                         <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们是一群有着专业技能的团队，我们的队伍中有着资深的技术能力带头人，更重要的是我们
@@ -51,7 +51,7 @@
                         <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们的使命是，通过优化血透中心临床工作流程，建立标准的作业程序，提高服务质量，增加服务成本的有效性
                             ，并且不断提高透析者的透析质量和生活品质。</p>
                     </div>
-                    <div class="col-lg-9 col-md-8 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
+                    <div class="col-lg-8 col-md-8 col-sm-8" style="margin-top: 20px;margin-bottom: 20px">
                         <img id="brief-img2" src="images/shili-pic2.png">
                     </div>
                 </div>

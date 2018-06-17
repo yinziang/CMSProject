@@ -33,7 +33,7 @@
         <div class="row cm-fix-height">
             <div class="form-group col" style="margin-top:20px;" >
                 <button type="submit" class="btn btn-primary col-sm-6" style="width: 50%;margin: auto" onclick="clickUpdate()">修改</button>
-                <button type="submit" class="btn btn-primary col-sm-6" style="width: 50%;margin: auto" onclick="clickSave()">保存</button>
+                <button id="save-btn" type="submit" class="btn btn-primary col-sm-6" style="width: 50%;margin: auto" onclick="clickSave()" disabled>保存</button>
             </div>
         </div>
         <div class="row cm-fix-height">
@@ -55,7 +55,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">修改内容</div>
                     <div class="panel-body">
-                        <textarea class="form-control" id="brief-txt-1" rows="10" disabled></textarea>
+                        <div id="summernote1"></div>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">修改内容</div>
                     <div class="panel-body">
-                        <textarea class="form-control" id="brief-txt-2" rows="10" disabled></textarea>
+                        <div id="summernote2"></div>
                     </div>
                 </div>
             </div>
@@ -105,6 +105,12 @@
      */
     $(function () {
         load();
+        $('#summernote1').summernote({
+            height: 420
+        });
+        $('#summernote2').summernote({
+            height: 420
+        });
     });
 
     var data;
@@ -124,10 +130,10 @@
                     console.log("操作成功")
                     document.getElementById("brief-img1").src = res.data[0].imageUrl;
                     document.getElementById("brief-img2").src = res.data[1].imageUrl;
-                    document.getElementById("brief-txt-1").value = res.data[0].content;
-                    document.getElementById("brief-txt-2").value = res.data[1].content;
                     document.getElementById("page1-image-url").value = res.data[0].imageUrl;
                     document.getElementById("page2-image-url").value = res.data[1].imageUrl;
+                    $('#summernote1').code(res.data[0].content);
+                    $('#summernote2').code(res.data[1].content);
                 } else {
                     console.log("操作失败")
                 }
@@ -139,21 +145,18 @@
     }
 
     function clickUpdate() {
-        $('#brief-txt-1').attr("disabled",false);
-        $('#brief-txt-2').attr("disabled",false);
         $('#page1-image-up').attr("disabled",false);
         $('#page2-image-up').attr("disabled",false);
         $('#brief-img1-up').attr("disabled",false);
         $('#brief-img2-up').attr("disabled",false);
+        $('#save-btn').attr("disabled",false);
     }
 
     function clickSave() {
         console.log("点击了保存");
 
-        console.log(data[0].content, data[1].content)
-
-        data[0].content = $('#brief-txt-1').val();
-        data[1].content = $('#brief-txt-2').val();
+        data[0].content = $('#summernote1').code();
+        data[1].content = $('#summernote2').code();
 
         console.log(data);
 
@@ -172,12 +175,11 @@
                 console.log("错误信息：" + xhr.valueOf(), type);
             }
         });
-        $('#brief-txt-1').attr("disabled",true);
-        $('#brief-txt-2').attr("disabled",true);
         $('#page1-image-up').attr("disabled",true);
         $('#page2-image-up').attr("disabled",true);
         $('#brief-img1-up').attr("disabled",true);
         $('#brief-img2-up').attr("disabled",true);
+        $('#save-btn').attr("disabled",true);
     }
 
 </script>

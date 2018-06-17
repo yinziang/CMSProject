@@ -30,14 +30,14 @@
             </h3>
             <div class="content-page">
                 <div  class="col-lg-12 col-md-12 col-sm-12 zixun">
-                    <div id="brief-txt-1" class="col-lg-3 col-md-3 col-sm-3" style="margin-top: 20px">
+                    <div id="brief-txt-1" class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px">
                         <p class="para" style="font-size: 15px">
                             &nbsp;&nbsp;&nbsp;&nbsp;湖北肾畅泰康医疗科技有限公司，是一家专注于血液透析领域投资、运营和管理的公司.</p>
                         <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们也是一家具有社会责任感的企业，作为一家医疗企业，安全是至关重要的，我们具有四大核心竞争力
                             ，从而为我们的客户提供安全有保证的服务。</p>
                         <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们有着先进的管理团队，顶尖的业务团队，丰富的临床资源以及标准的作业流程。</p>
                     </div>
-                    <div class="col-lg-9 col-md-9 col-sm-9" style="margin-top: 20px;margin-bottom: 20px">
+                    <div class="col-lg-8 col-md-8 col-sm-8" style="margin-top: 20px;margin-bottom: 20px">
                         <img id="brief-img1" src="images/shehuizeren-pic1.png"></div>
                 </div>
                 <div id="brief-txt-2" class="col-lg-12 col-md-12 col-sm-12 zixun">

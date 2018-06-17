@@ -33,7 +33,7 @@
         <div class="row cm-fix-height">
             <div class="form-group col" style="margin-top:20px;" >
                 <button type="submit" class="btn btn-primary col-sm-6" style="width: 50%;margin: auto" onclick="clickUpdate()">修改</button>
-                <button type="submit" class="btn btn-primary col-sm-6" style="width: 50%;margin: auto" onclick="clickSave()">保存</button>
+                <button id="save-btn" disabled type="submit" class="btn btn-primary col-sm-6" style="width: 50%;margin: auto" onclick="clickSave()">保存</button>
             </div>
         </div>
         <div class="row cm-fix-height">
@@ -55,7 +55,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">修改内容</div>
                     <div class="panel-body">
-                        <textarea class="form-control" id="brief-txt" rows="10" disabled></textarea>
+                        <div id="summernote1"></div>
                     </div>
                 </div>
             </div>
@@ -80,6 +80,9 @@
      */
     $(function () {
         load();
+        $('#summernote1').summernote({
+            height: 420
+        });
     });
 
     var data;
@@ -98,7 +101,7 @@
                 if (res.status == 200) {
                     console.log("操作成功")
                     document.getElementById("brief-img").src = res.data.imageUrl;
-                    document.getElementById("brief-txt").value = res.data.content;
+                    $('#summernote1').code(res.data.content);
                     document.getElementById("page-image-url").value = res.data.imageUrl;
                 } else {
                     console.log("操作失败")
@@ -111,7 +114,7 @@
     }
 
     function clickUpdate() {
-        $('#brief-txt').attr("disabled",false);
+        $('#save-btn').attr("disabled",false);
         $('#page-image-up').attr("disabled",false);
         $('#brief-img-up').attr("disabled",false);
     }
@@ -120,7 +123,7 @@
         console.log("点击了保存");
         console.log(data.content)
 
-        data.content = $('#brief-txt').val();
+        data.content = $('#summernote1').code();
 
         console.log(data);
 
@@ -139,7 +142,7 @@
                 console.log("错误信息：" + xhr.valueOf(), type);
             }
         });
-        $('#brief-txt').attr("disabled",true);
+        $('#save-btn').attr("disabled",true);
         $('#page-image-up').attr("disabled",true);
         $('#brief-img-up').attr("disabled",true);
     }

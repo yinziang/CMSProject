@@ -30,7 +30,7 @@
             </h3>
             <div>
                 <div class="col-lg-12 col-md-12 col-sm-12 zixun">
-                    <div class="col-lg-9 col-md-8 col-sm-6" style="margin-top: 20px;margin-bottom: 20px"><img id="brief-img1"
+                    <div class="col-lg-8 col-md-8 col-sm-8" style="margin-top: 20px;margin-bottom: 20px"><img id="brief-img1"
                                                                                                               src="images/wenhua-pic2.png"></div>
                     <div id="brief-txt-1" class="col-lg-3 col-md-4 col-sm-6" style="margin-top: 20px">
                         <p class="para" style="font-size: 15px">
@@ -42,7 +42,7 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12 zixun">
 
-                    <div id="brief-txt-2" class="col-lg-3 col-md-4 col-sm-4" style="margin-top: 20px">
+                    <div id="brief-txt-2" class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px">
                         <p class="para" style="font-size: 15px">
                             &nbsp;&nbsp;&nbsp;&nbsp;我们在平时用心处理好跟病人的关系的同时，为了增强整个团队的凝聚力，也会经常性的举办一些活动来增进大家的感情。特别的是在有的专业知识的比赛中
                             ，既锻炼了大家的综合能力，也更能促进团队的进步。</p>
