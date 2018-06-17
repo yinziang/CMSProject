@@ -23,15 +23,22 @@ public class Helper {
         return sb.toString();
     }
 
+    public static List<String> stringToListSplitBySymbol(String string, String symbol) {
+        if (string == null || string.length() == 0) {
+            return new ArrayList<>();
+        }
+        return Arrays.asList(string.split(symbol));
+    }
+
     public static List<String> stringToList(String string) {
-        if(string==null || string.length()==0) {
+        if (string == null || string.length() == 0) {
             return new ArrayList<>();
         }
         return Arrays.asList(string.split(" "));
     }
 
     public static String dateToString(Date date) {
-        if(date == null) {
+        if (date == null) {
             return "";
         }
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

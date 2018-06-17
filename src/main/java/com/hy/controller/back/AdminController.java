@@ -8,6 +8,7 @@ import com.hy.service.AdminService;
 import com.hy.service.ModuleService;
 import com.hy.service.PageService;
 import com.hy.service.PartService;
+import com.hy.utils.Constants;
 import com.hy.utils.Helper;
 import com.hy.utils.JSONResult;
 import com.sun.org.apache.xpath.internal.operations.Mod;
@@ -38,6 +39,31 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
+    /* 20180617 */
+    @RequestMapping(value = "/listNews", method = RequestMethod.GET)
+    public String listNews(ModelMap map) {
+        List<Page> newsList = pageService.listPageByPartId(Constants.NEWS_PART_ID);
+        map.addAttribute("newsList", newsList);
+        System.out.println(newsList);
+        return "/back/list_news";
+    }
+
+    @RequestMapping(value = "/news/{id}", method = RequestMethod.GET)
+    public String toNewsUpdate(@PathVariable(value = "id") Integer id,
+                               ModelMap map) {
+        Page news = pageService.getPageById(id);
+        map.addAttribute("news", news);
+        return "/back/update_news";
+    }
+
+    @RequestMapping(value = "/news/{id}", method = RequestMethod.PUT)
+    public JSONResult updateNews(@PathVariable(value = "id") Integer id,
+                                 Page news) {
+        //pageService.
+
+        return JSONResult.ok();
+    }
+    /* 20180617 */
 
     /**
      * 文件上传
@@ -110,15 +136,16 @@ public class AdminController {
         if (file != null && file.getName() != null && !file.isEmpty()) {
             String FILE_TARGET = "target";
             String basePath = request.getSession().getServletContext().getRealPath("/");
-            System.out.println("basePath:"+basePath);
 
             if (basePath.contains(FILE_TARGET)) {
                 basePath = basePath.substring(0,basePath.lastIndexOf(FILE_TARGET));
             }
+            //System.out.println("basePath:"+basePath);
 
+            String dir = basePath + "src/main/webapp/";
             try{
                 // 新的图片
-                File newFile = new File(basePath + imageUrl);
+                File newFile = new File(dir + imageUrl);
 
                 // 将内存中的数据写入磁盘
                 file.transferTo(newFile);

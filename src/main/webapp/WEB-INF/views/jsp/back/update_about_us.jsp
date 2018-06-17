@@ -40,12 +40,12 @@
             <div class="col-sm-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <img id="brief-img1" src="/img/sass-less.png" alt="Less support" class="img-responsive">
+                        <img id="brief-img" src="/img/sass-less.png" alt="Less support" class="img-responsive">
                         <form style="margin-top: 10px;font-size: large" action="/admin/uploadFile" enctype="multipart/form-data" method="post">
                             <div class="form-group">
-                                <input type="file" name="file" class="form-control-file" id="brief-img1-up" value="修改图片" disabled>
-                                <input type="txt" name="imageUrl" id="page1-image-url" hidden>
-                                <input type="submit" id="page1-image-up" value="上传" disabled/>
+                                <input type="file" name="file" class="form-control-file" id="brief-img-up" value="修改图片" disabled>
+                                <input type="txt" name="imageUrl" id="page-image-url" hidden>
+                                <input type="submit" id="page-image-up" value="上传" disabled/>
                             </div>
                         </form>
                     </div>
@@ -55,36 +55,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">修改内容</div>
                     <div class="panel-body">
-                        <textarea class="form-control" id="brief-txt-1" rows="10" disabled></textarea>
+                        <textarea class="form-control" id="brief-txt" rows="10" disabled></textarea>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row cm-fix-height">
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">修改内容</div>
-                    <div class="panel-body">
-                        <textarea class="form-control" id="brief-txt-2" rows="10" disabled></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <img id="brief-img2" src="/img/sass-less.png" alt="Less support" class="img-responsive">
-                        <form style="margin-top: 10px;font-size: large" action="/admin/uploadFile" enctype="multipart/form-data" method="post">
-                            <div class="form-group">
-                                <input type="file" name="file" class="form-control-file" id="brief-img2-up" value="修改图片" disabled>
-                                <input type="txt" name="imageUrl" id="page2-image-url" hidden>
-                                <input type="submit" id="page2-image-up" value="上传" disabled/>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
     <jsp:include page="footer.jsp"></jsp:include>
 </div>
@@ -106,7 +81,9 @@
     $(function () {
         load();
     });
+
     var data;
+
     /**
      * 加载时执行的函数
      */
@@ -114,18 +91,15 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: '/admin/parts/1/pages', // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
+            url: '/index/aboutUs', // 数字1表示的是partId,即表示第一个部分：肾畅简介的页面内容
             success: function (res) {
                 console.log(res)
                 data = res.data;
                 if (res.status == 200) {
                     console.log("操作成功")
-                    document.getElementById("brief-img1").src = res.data[0].imageUrl;
-                    document.getElementById("brief-img2").src = res.data[1].imageUrl;
-                    document.getElementById("brief-txt-1").value = res.data[0].content;
-                    document.getElementById("brief-txt-2").value = res.data[1].content;
-                    document.getElementById("page1-image-url").value = res.data[0].imageUrl;
-                    document.getElementById("page2-image-url").value = res.data[1].imageUrl;
+                    document.getElementById("brief-img").src = res.data.imageUrl;
+                    document.getElementById("brief-txt").value = res.data.content;
+                    document.getElementById("page-image-url").value = res.data.imageUrl;
                 } else {
                     console.log("操作失败")
                 }
@@ -135,41 +109,43 @@
             }
         });
     }
+
     function clickUpdate() {
-        $('#brief-txt-1').attr("disabled",false);
-        $('#brief-txt-2').attr("disabled",false);
-        $('#page1-image-up').attr("disabled",false);
-        $('#page2-image-up').attr("disabled",false);
-        $('#brief-img1-up').attr("disabled",false);
-        $('#brief-img2-up').attr("disabled",false);
+        $('#brief-txt').attr("disabled",false);
+        $('#page-image-up').attr("disabled",false);
+        $('#brief-img-up').attr("disabled",false);
     }
+
     function clickSave() {
         console.log("点击了保存");
-        console.log(data[0].content, data[1].content)
-        data[0].content = $('#brief-txt-1').val();
-        data[1].content = $('#brief-txt-2').val();
+        console.log(data.content)
+
+        data.content = $('#brief-txt').val();
+
         console.log(data);
+
         data = JSON.stringify(data);
+
         $.ajax({
             type: 'PUT',
-            url: '/admin/updatePages',
+            url: '/index/aboutUs',
             contentType: 'application/json;charset=utf-8',
             data: data,
             success: function (res) {
                 console.log(res);
+
             },
             error: function (xhr, type) {
                 console.log("错误信息：" + xhr.valueOf(), type);
             }
         });
-        $('#brief-txt-1').attr("disabled",true);
-        $('#brief-txt-2').attr("disabled",true);
-        $('#page1-image-up').attr("disabled",true);
-        $('#page2-image-up').attr("disabled",true);
-        $('#brief-img1-up').attr("disabled",true);
-        $('#brief-img2-up').attr("disabled",true);
+        $('#brief-txt').attr("disabled",true);
+        $('#page-image-up').attr("disabled",true);
+        $('#brief-img-up').attr("disabled",true);
     }
+
 </script>
 
 </body>
 </html>
+

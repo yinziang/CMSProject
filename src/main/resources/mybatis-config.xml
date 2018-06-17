@@ -15,6 +15,7 @@
         <mapper resource="mybatis/mapper/AdminMapper.xml" />
         <mapper resource="mybatis/mapper/ContactMapper.xml" />
         <mapper resource="mybatis/mapper/ImageTextMapper.xml" />
+        <mapper resource="mybatis/mapper/IndexPageMapper.xml" />
         <mapper resource="mybatis/mapper/MessageMapper.xml" />
         <mapper resource="mybatis/mapper/ModuleMapper.xml" />
         <mapper resource="mybatis/mapper/PageMapper.xml" />

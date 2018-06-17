@@ -6,8 +6,6 @@ package com.hy.utils;
  */
 public interface Constants {
 
-    Integer ABOUT_US_PART_ID = 1;
-
     /* 模块编号 */
     Integer ABOUT_SHENCHANG_MODULE_ID = 1;
     Integer SOLUTION_MODULE_ID = 2;
@@ -36,18 +34,20 @@ public interface Constants {
 
     Integer NEWS_PART_ID = 0;
     Integer HEALTH_EDUCATION_PART_ID = 11;
-    Integer INDEX_MAX_NEWS_NUMBER = 3;
+    Integer INDEX_MAX_NEWS_NUMBER = 3; // 首页轮播广告最大个数
 
     String ERROR_MESSAGE = "遇到麻烦了，请等喘口气再操作！";
     String OK_MESSAGE = "操作成功";
     String PICTURE_NAME = "pic";
-    String SOLUTION_IMAGE_PATH = "images/page/solution.png";
 
 
     /* followings deprecated */
+    /*
+    Integer ABOUT_US_PART_ID = 1;
+    String SOLUTION_IMAGE_PATH = "images/page/solution.png";
     JSONResult UNDEFINED_JSON_RESULT = JSONResult.build(666, Constants.ERROR_MESSAGE, null);
     JSONResult UNCOMLETED_JSON_RESULT = JSONResult.ok("抱歉，还没掌握这个技能，:)");
-
     String ABOUT_US_IMAGE_PATH = "images/about_us/about_us.jpg";
     String ABOUT_US_CONTENT = "我们是XXX医院，我们能XXX。";
+    */
 }
