@@ -1,46 +1,116 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: huaxin
+  Date: 2018/6/17
+  Time: 11:38
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="zh">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登录界面</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <title>Home</title>
+    <jsp:include page="WEB-INF/views/jsp/font/base.jsp"></jsp:include>
+
 </head>
+
 <body>
+<div class="wrapper">
+    <div class="wrap">
+        <div class="wrap_inner">
+            <jsp:include page="WEB-INF/views/jsp/font/header.jsp"></jsp:include>
 
-<%--<img src="images/page/6ae0201f8a6b4e1798aa67a330f4c353.jpg" />--%>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6">
-            <form class="form-horizontal" action="./admin/login" method="post">
-                <span class="heading">登录界面</span>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="username" id="inputEmail3" placeholder="请输入用户名" value="admin">
-                    <i class="fa fa-user"></i>
-                </div>
-                <div class="form-group help">
-                    <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="请输入密码" value="admin">
-                    <i class="fa fa-lock"></i>
-                    <a href="#" class="fa fa-question-circle"></a>
-                </div>
-                <div class="form-group">
-                    <div class="main-checkbox">
-                        <input type="checkbox" value="None" id="checkbox1" name="check"/>
-                        <label for="checkbox1"></label>
+            <!-- #camera_wrap_1 -->
+            <div class="fluid_container">
+                <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+                    <div data-thumb="images/thumbs/slide1.png" data-src="/images/font/slider/slide1.png">
                     </div>
-                    <span class="text">Remember me</span>
-                    <button type="submit" class="btn btn-default">登录</button>
+                    <div data-thumb="images/thumbs/slide2.png" data-src="/images/font/slider/slide2.png">
+                    </div>
+                    <div data-thumb="images/thumbs/slide3.png" data-src="/images/font/slider/slide3.png">
+                    </div>
+                    <!--<div data-thumb="images/thumbs/slider1.jpg" data-src="images/slider/slider4.jpg">-->
                 </div>
-            </form>
+            </div>
+            <!-- #camera_wrap_1 -->
+            <div class="clear"></div>
         </div>
+
+        <!-- 我们的解决方案 -->
+        <div style="margin-top: 40px;">
+            <h3>
+                <center>我们的方案</center>
+            </h3>
+            <a href="/font/toDesign"><img src="/images/font/jiejuefangan.png"/></a>
+        </div>
+
+        <!-- 我们的简介 -->
+        <div style="margin-top: 20px;" class="col-lg-12 col-md-12 col-sm-12" style="margin: 30px">
+            <h3>
+                <center>我们的简介</center>
+            </h3>
+            <div class="col-lg-9 col-md-8 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
+                <a href="/font/toBrief"><img src="/images/font/jianjie.png"></a></div>
+            <div class="col-lg-3 col-md-4 col-sm-4" style="margin-top: 20px">
+                <p class="para" style="font-size: 15px">
+                    &nbsp;&nbsp;&nbsp;&nbsp;湖北肾畅泰康医疗科技有限公司，是一家专注于血液透析领域投资、运营和管理的公司.</p>
+                <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们依托于湖北康泰化成医疗管理有限公司，凭借着集团公司医疗管理的丰富经验，配合国内顶尖的高素质专业人才
+                    ，将完善的血液透析医疗服务提供给肾病患者，将血液透析整体解决方案提供给各大医疗机构。</p>
+                <p class="para" style="font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;我们是独立血透中心的投资者和经营者，我们是血透整体解决方案的提供者，我们是肾畅医疗。</p>
+            </div>
+        </div>
+
+        <!-- 最新资讯 -->
+        <div style="margin-top: 20px;" class="col-lg-12 col-md-12 col-sm-12 news-card" style="margin: 30px">
+            <h3>
+                <center>最新资讯</center>
+            </h3>
+            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
+                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n1.html"><img src="/images/font/zuixinzx/zuixinzx-pic1.jpg"></a></p>
+                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n1.html">CSN2017 | 肾脏病学分会学术年会于武汉圆满闭幕</a></p>
+                <p>由中华医学会、中华医学会肾脏病学分会主办，湖北省医学会承办的中华医学会肾脏病学分会2017年学术年会在历经4天的学术交流后， 于9月16日在武汉洲际酒店国际会议中心圆满闭幕。</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
+                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n2.html"><img src="/images/font/zuixinzx/zuixinzx-pic2.jpg"></a></p>
+                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n2.html">肾友会活动——两岸携手，共抗肾病（延吉泌尿肾病医院）</a></p>
+                <p>近日，延边州首家社会办医血液透析中心——延吉泌尿肾病医院正式投入使用，该项目总投资1.5亿元， 是延边州规模最大的非公医疗机构。杏泰医疗有幸参与其中，与香港远东国际医疗投资集团合作，
+                    力求为延边的患者提供更好的医疗服务</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
+                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n3.html"><img src="/images/font/zuixinzx/zuixinzx-pic3.jpg"></a></p>
+                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n3.html">2016省中“仁和”心脑肾高峰对话论坛</a></p>
+                <p>浙江省中医院于近日以“溯源·聚慧·共进”为主题，举办了“2016省中·仁和整合医学论坛”， 肾畅医疗有幸参与其中，并邀请台大医院新竹分院院长洪冠予教授出席了分论坛——心脑肾高峰对话论坛。</p>
+            </div>
+
+        </div>
+        <p style="font-size: 18px;margin-left: 20px"><a href="/font/toNewsList">更多资讯>></a></p>
+        <!-- end#最新资讯 -->
+
+        <jsp:include page="WEB-INF/views/jsp/font/tool-page.jsp"></jsp:include>
     </div>
 </div>
 
+<div class="clear"></div>
+<hr/>
+<jsp:include page="WEB-INF/views/jsp/font/foot.jsp"></jsp:include>
 
+<script>
+    jQuery(function () {
+
+        jQuery('#camera_wrap_1').camera({
+            thumbnails: true
+        });
+
+        jQuery('#camera_wrap_2').camera({
+            height: '400px',
+            loader: 'bar',
+            pagination: true,
+            thumbnails: true
+        });
+    });
+</script>
 </body>
+
 </html>
+

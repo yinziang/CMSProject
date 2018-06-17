@@ -1,0 +1,76 @@
+footer {
+	position: relative;
+	background-color: white;
+	border: #F1F1F1;
+
+	color: white;
+}
+
+footer .container {
+	width: 100%;
+	text-align: center;
+}
+
+footer .container #left ul li a {
+	color: darkgrey;
+}
+
+#copyright {
+	color: darkgrey;
+}
+
+#left {
+
+	display: inline-block;
+}
+
+#left ul {
+	margin-top: 2%;
+}
+
+#right {
+	position: absolute;
+	bottom: 1%;
+	left: 75%;
+}
+
+#right img {
+	opacity: 0.4;
+}
+
+#right img:hover {
+	opacity: 1;
+}
+
+#copyright {
+	padding-bottom: 2%;
+}
+
+#Wechat {
+	position: relative;
+}
+
+#QRcode {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	/*display: none;*/
+	/*bottom: 100px;
+	right: -10px;
+	z-index: 30;*/
+}
+
+#QRcode img {
+	opacity: 1;
+}
+
+.list-inline a {
+	color: white;
+	text-decoration: none;
+}
+
+.list-inline a:hover, .list-inline a:focus {
+	color: white;
+	text-decoration: none;
+}
+

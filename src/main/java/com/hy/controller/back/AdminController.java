@@ -163,6 +163,37 @@ public class AdminController {
     // ********************** 页面跳转控制器 **********************
 
     /**
+     * 跳转到解决方案中的信息化系统界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toSystem")
+    public String toSystem(ModelMap map) {
+        return "/back/update_solu_system";
+    }
+
+    /**
+     * 跳转到解决方案中的人员培训界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toTrain")
+    public String toTrain(ModelMap map) {
+        return "/back/update_solu_train";
+    }
+
+
+    /**
+     * 跳转到解决方案中的市场营销界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("/toMarket")
+    public String toMarket(ModelMap map) {
+        return "/back/update_solu_market";
+    }
+
+    /**
      * 跳转到解决方案中的设计规划界面的控制器
      * @param map
      * @return
@@ -248,6 +279,19 @@ public class AdminController {
     public String toBrief(ModelMap map) {
         return "/back/update_brief";
     }
+
+    /**
+     * 跳转到肾畅简介界面的控制器
+     * @param map
+     * @return
+     */
+    @RequestMapping("")
+    public String toLogin(ModelMap map) {
+        return "/back/login";
+    }
+
+
+    // ********************** end 页面跳转控制器 **********************
 
     /**
      * 管理员用户登录的控制器

@@ -38,9 +38,9 @@
                         <a class="sf-wrench-screwdriver">解决方案 <span class="caret"></span></a>
                         <ul>
                             <li><a href="/admin/toDesign">设计规划</a></li>
-                            <li><a href="layouts-breadcrumb2.html">市场营销</a></li>
-                            <li><a href="layouts-tabs.html">市场营销</a></li>
-                            <li><a href="layouts-tabs.html">信息化系统</a></li>
+                            <li><a href="/admin/toMarket">市场营销</a></li>
+                            <li><a href="/admin/toTrain">人员培训</a></li>
+                            <li><a href="/admin/toSystem">信息化系统</a></li>
                         </ul>
                     </li>
                     <li class="cm-submenu">

@@ -1,0 +1,19 @@
+.zixun {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.news-card {
+}
+.news-card p{
+    font-size: 15px;
+}
+
+.news-card p a{
+    font-size: 18px;
+}
+
+.hr-line {
+    margin-top: 15px;
+    border: 1px dashed rgba(186, 175, 177, 0.26);
+}
