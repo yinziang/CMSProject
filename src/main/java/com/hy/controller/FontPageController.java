@@ -4,10 +4,12 @@ package com.hy.controller;
 import com.hy.domain.Module;
 import com.hy.domain.Page;
 import com.hy.domain.Part;
+import com.hy.domain.dto.BriefPage;
 import com.hy.service.AdminService;
 import com.hy.service.ModuleService;
 import com.hy.service.PageService;
 import com.hy.service.PartService;
+import com.hy.utils.Constants;
 import com.hy.utils.Helper;
 import com.hy.utils.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,26 @@ import java.util.List;
 @RequestMapping("/font")
 public class FontPageController {
 
+    @Autowired
+    PageService pageService = null;
+
     // ********************** 页面跳转控制器 **********************
 
+    @RequestMapping(value = "/newsDetails/{id}", method = RequestMethod.GET)
+    public String newsDetails(@PathVariable(value = "id") Integer id, ModelMap map) {
+        Page page = pageService.getPageById(id);
+        map.addAttribute("newsDetails", page);
+
+        return "/font/news_details";
+    }
+
+    @RequestMapping(value = "/eduDetails/{id}", method = RequestMethod.GET)
+    public String eduDetails(@PathVariable(value = "id") Integer id, ModelMap map) {
+        Page page = pageService.getPageById(id);
+        map.addAttribute("eduDetails", page);
+
+        return "/font/edu_details";
+    }
 
     /**
      * 跳转到嘉鱼血透中心界面的控制器
@@ -35,6 +55,20 @@ public class FontPageController {
      */
     @RequestMapping("/toHealthEdu")
     public String toHealthEdu(ModelMap map) {
+        List<Page> healthEduList = pageService.listPageByPartId(Constants.HEALTH_EDUCATION_PART_ID);
+
+        List<BriefPage> pageLists = new ArrayList<>();
+        BriefPage briefPage = null;
+        for(Page news : healthEduList) {
+            briefPage = new BriefPage(news.getId(), news.getTitle(), news.getThumbnail(),
+                    news.getDescription(), news.getContent(), Helper.dateToString(news.getCreateAt()),
+                    Helper.dateToString(news.getUpdateAt()));
+            pageLists.add(briefPage);
+        }
+
+        map.addAttribute("healthEduLists", pageLists);
+
+        System.out.println(healthEduList);
         return "/font/jiankangxuanjiao";
     }
 
@@ -45,6 +79,20 @@ public class FontPageController {
      */
     @RequestMapping("/toNewsList")
     public String toNewsList(ModelMap map) {
+        List<Page> newsLists = pageService.listPageByPartId(Constants.NEWS_PART_ID);
+
+        List<BriefPage> pageLists = new ArrayList<>();
+        BriefPage briefPage = null;
+        for(Page news : newsLists) {
+            briefPage = new BriefPage(news.getId(), news.getTitle(), news.getThumbnail(),
+                    news.getDescription(), news.getContent(), Helper.dateToString(news.getCreateAt()),
+                    Helper.dateToString(news.getUpdateAt()));
+            pageLists.add(briefPage);
+        }
+
+        map.addAttribute("newsLists", pageLists);
+
+        System.out.println(newsLists);
         return "/font/zuixinzixun";
     }
 

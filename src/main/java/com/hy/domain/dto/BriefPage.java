@@ -7,16 +7,19 @@ public class BriefPage {
     private String title;
     private String thumbnail;
     private String description;
+    private String content;
     private String createAt;
     private String updateAt;
 
-    protected BriefPage() {}
+    protected BriefPage() {
+    }
 
-    public BriefPage(Integer id, String title, String description, String createAt, String updateAt) {
+    public BriefPage(Integer id, String title, String thumbnail, String description, String content, String createAt, String updateAt) {
         this.id = id;
         this.title = title;
         this.thumbnail = thumbnail;
         this.description = description;
+        this.content = content;
         this.createAt = createAt;
         this.updateAt = updateAt;
     }
@@ -51,6 +54,14 @@ public class BriefPage {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getCreateAt() {
