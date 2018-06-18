@@ -35,7 +35,11 @@ public class FontPageController {
     @RequestMapping(value = "/newsDetails/{id}", method = RequestMethod.GET)
     public String newsDetails(@PathVariable(value = "id") Integer id, ModelMap map) {
         Page page = pageService.getPageById(id);
-        map.addAttribute("newsDetails", page);
+        BriefPage briefPage = new BriefPage(page.getId(), page.getTitle(), page.getThumbnail(),
+                page.getDescription(), page.getContent(), Helper.dateToString(page.getCreateAt()),
+                    Helper.dateToString(page.getUpdateAt()));
+
+        map.addAttribute("newsDetails", briefPage);
 
         return "/font/news_details";
     }
@@ -43,7 +47,10 @@ public class FontPageController {
     @RequestMapping(value = "/eduDetails/{id}", method = RequestMethod.GET)
     public String eduDetails(@PathVariable(value = "id") Integer id, ModelMap map) {
         Page page = pageService.getPageById(id);
-        map.addAttribute("eduDetails", page);
+        BriefPage briefPage = new BriefPage(page.getId(), page.getTitle(), page.getThumbnail(),
+                page.getDescription(), page.getContent(), Helper.dateToString(page.getCreateAt()),
+                Helper.dateToString(page.getUpdateAt()));
+        map.addAttribute("eduDetails", briefPage);
 
         return "/font/edu_details";
     }

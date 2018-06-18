@@ -82,12 +82,11 @@ public class AdminController {
         String content = data.get("content");
         Page page = new Page();
         page.setTitle(data.get("title"));
+        page.setDescription(data.get("desc"));
         page.setContent(content);
         page.setId(maxId + 1);
         page.setPid(Constants.HEALTH_EDUCATION_PART_ID);
         page.setCreateAt(new Date());
-        page.setDescription(content.substring(0,
-                Math.min(Constants.MAX_DESCRIPTION_LENGTH, content.length())) + "...");
         System.out.println("page:" + page);
         pageService.savePage(page);
         return JSONResult.ok(page.getId());
@@ -139,12 +138,12 @@ public class AdminController {
         System.out.println(maxId);
         Page page = new Page();
         page.setTitle(data.get("title"));
+        page.setDescription(data.get("desc"));
         page.setContent(content);
         page.setId(maxId + 1);
         page.setPid(Constants.NEWS_PART_ID);
         page.setCreateAt(new Date());
-        page.setContent(content.substring(0,
-                Math.min(Constants.MAX_DESCRIPTION_LENGTH, content.length())) + "...");
+
         System.out.println("page:" + page);
         pageService.savePage(page);
         return JSONResult.ok(page.getId());

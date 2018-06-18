@@ -24,12 +24,12 @@
         <div class="main col-lg-12 col-md-12 col-sm-12">
 
             <div class="col-lg-5 col-md-5 col-sm-5" style="margin-top: 50px;margin-bottom: 50px">
-                <p id="company_cname" style="padding-left: 40px;font-size: 20px">湖北康泰化成医疗管理有限公司</p>
-                <p id="company_ename" style="padding-left: 40px;font-size: 20px">Hubei Kangtai Hua Cheng Medical Management Co.,Ltd.</p>
-                <p id="company_telphone" style="padding-left: 40px;font-size: 20px">027-87366568</p>
-                <p id="company_email" style="padding-left: 40px;font-size: 20px">邮箱：593970826@qq.com</p>
-                <p id="company_website" style="padding-left: 40px;font-size: 20px">网址：http://www.kthcyl.com</p>
-                <p id="company_location" style="padding-left: 40px;font-size: 20px">地址：武汉市武昌区汉街总部国际F座704-706室</p>
+                <p id="company_cname" style="padding-left: 40px;font-size: 18px">湖北康泰化成医疗管理有限公司</p>
+                <p id="company_ename" style="padding-left: 40px;font-size: 16px">Hubei Kangtai Hua Cheng Medical Management Co.,Ltd.</p>
+                <p id="company_telphone" style="padding-left: 40px;font-size: 18px">027-87366568</p>
+                <p id="company_email" style="padding-left: 40px;font-size: 18px">邮箱：593970826@qq.com</p>
+                <p id="company_website" style="padding-left: 40px;font-size: 18px">网址：http://www.kthcyl.com</p>
+                <p id="company_location" style="padding-left: 40px;font-size: 18px">地址：武汉市武昌区汉街总部国际F座704-706室</p>
             </div>
             <div class="col-lg-7 col-md-7 col-sm-7">
                 <jsp:include page="map.jsp"></jsp:include>

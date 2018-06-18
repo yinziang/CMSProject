@@ -29,9 +29,11 @@
                 <div class="form-group">
                     <label>Title</label>
                     <input type="text" id="title" class="form-control" placeholder="Enter title">
+                    <label>Description</label>
+                    <input type="text" id="description" class="form-control" placeholder="Enter Description">
                 </div>
                 <label>Content</label>
-                <div id="summernote"></div>
+                <div id="summernote1"></div>
                 <br />
                 <div class="form-group text-right" style="margin-top: auto">
                     <button id="saveBtn" type="submit" class="btn btn-primary"
@@ -73,7 +75,7 @@
     $(function () {
         // load();
 
-        $('#summernote').summernote({
+        $('#summernote1').summernote({
             lang: 'zh-CN', // default: 'en-US'
             height: 300,
             onImageUpload: function(files, editor, welEditable) {
@@ -108,9 +110,10 @@
         console.log("点击了保存:date:"+data);
 
         var title = $('#title').val();
-        var content = $('#summernote').code();
+        var desc = $('#description').val();
+        var content = $('#summernote1').code();
 
-        var str = {"title":title, "content":content};
+        var str = {"title":title, "desc":desc, "content":content};
         console.log(str);
 
         data = JSON.stringify(str);
