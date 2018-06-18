@@ -45,8 +45,8 @@ public class AdminController {
         List<BriefPage> briefPageList = new ArrayList<>();
         BriefPage briefPage = null;
         for(Page news : healthEduList) {
-            briefPage = new BriefPage(news.getId(), news.getTitle(),
-                    news.getDescription(), Helper.dateToString(news.getCreateAt()),
+            briefPage = new BriefPage(news.getId(), news.getTitle(),"",
+                    news.getDescription(),"", Helper.dateToString(news.getCreateAt()),
                     Helper.dateToString(news.getUpdateAt()));
             briefPageList.add(briefPage);
         }
@@ -70,8 +70,8 @@ public class AdminController {
         List<BriefPage> briefPageList = new ArrayList<>();
         BriefPage briefPage = null;
         for(Page news : newsList) {
-            briefPage = new BriefPage(news.getId(), news.getTitle(),
-                    news.getDescription(), Helper.dateToString(news.getCreateAt()),
+            briefPage = new BriefPage(news.getId(), news.getTitle(),"",
+                    news.getDescription(), "", Helper.dateToString(news.getCreateAt()),
                     Helper.dateToString(news.getUpdateAt()));
             briefPageList.add(briefPage);
         }
