@@ -20,11 +20,11 @@
 <%-- 主体部分显示的代码--%>
 <div id="global">
     <div class="container-fluid cm-container-white">
-        <h2 style="margin-top:0;text-align: center;">修改最新资讯界面</h2>
+        <h2 style="margin-top:0;text-align: center;">修改健康宣教界面</h2>
     </div>
     <div class="container-fluid">
         <div class="panel panel-default">
-            <div class="panel-heading">添加新闻</div>
+            <div class="panel-heading">添加健康宣教</div>
             <div class="panel-body">
                 <div class="form-group">
                     <label>Title</label>
@@ -117,7 +117,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '/admin/news',
+            url: '/admin/healthEdus',
             contentType: 'application/json;charset=utf-8',
             data: data,
             success: function (res) {

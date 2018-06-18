@@ -23,6 +23,22 @@ public class Page {
 
     private String content;
 
+    @Override
+    public String toString() {
+        return "Page{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", pid=" + pid +
+                ", keyword='" + keyword + '\'' +
+                ", description='" + description + '\'' +
+                ", createAt=" + createAt +
+                ", updateAt=" + updateAt +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", thumbnail='" + thumbnail + '\'' +
+                ", content='" + content + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

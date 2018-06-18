@@ -5,6 +5,7 @@ import com.hy.domain.Page;
 import java.util.List;
 
 public interface PageService {
+
     void deletePageByPid(Integer pid);
 
     List<Page> listPageByPartId(Integer partId);
@@ -17,4 +18,5 @@ public interface PageService {
 
     Page getPageById(Integer id);
 
+    Integer getMaxId();
 }

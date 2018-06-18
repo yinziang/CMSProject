@@ -18,4 +18,6 @@ public interface PageMapper {
     int deleteByPid(Integer pid);
 
     List<Page> selectAllByPartId(Integer partId);
+
+    Integer selectMaxId();
 }

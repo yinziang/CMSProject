@@ -23,6 +23,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -63,6 +64,34 @@ public class AdminController {
         return "/back/update_health_edu";
     }
 
+    @RequestMapping("/toHealthEduAdd")
+    public String toHealthEduAdd() {
+        return "/back/add_health_edu";
+    }
+
+    /**
+     *
+     * @param data
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/healthEdus", method = RequestMethod.POST)
+    public JSONResult addHealthEdus(@RequestBody Map<String, String> data) {
+        // 获取数据库Page表最大的ID，加1作为新插入记录的ID
+        Integer maxId = pageService.getMaxId();
+        String content = data.get("content");
+        Page page = new Page();
+        page.setTitle(data.get("title"));
+        page.setContent(content);
+        page.setId(maxId + 1);
+        page.setPid(Constants.HEALTH_EDUCATION_PART_ID);
+        page.setCreateAt(new Date());
+        page.setDescription(content.substring(0,
+                Math.min(Constants.MAX_DESCRIPTION_LENGTH, content.length())) + "...");
+        System.out.println("page:" + page);
+        pageService.savePage(page);
+        return JSONResult.ok(page.getId());
+    }
 
     @RequestMapping(value = "/listNews", method = RequestMethod.GET)
     public String listNews(ModelMap map) {
@@ -95,24 +124,47 @@ public class AdminController {
         return "/back/add_news";
     }
 
-    @RequestMapping("/addNews")
-    public String newsAdd() {
-
-
-
-        return "redirect:/admin/listNews";
+    /**
+     *
+     * @param data
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/news", method = RequestMethod.POST)
+    public JSONResult addNews(@RequestBody Map<String, String> data) {
+        //System.out.println("data:" + data + ", " + data.getClass());
+        // 获取数据库Page表最大的ID，加1作为新插入记录的ID
+        Integer maxId = pageService.getMaxId();
+        String content = data.get("content");
+        System.out.println(maxId);
+        Page page = new Page();
+        page.setTitle(data.get("title"));
+        page.setContent(content);
+        page.setId(maxId + 1);
+        page.setPid(Constants.NEWS_PART_ID);
+        page.setCreateAt(new Date());
+        page.setContent(content.substring(0,
+                Math.min(Constants.MAX_DESCRIPTION_LENGTH, content.length())) + "...");
+        System.out.println("page:" + page);
+        pageService.savePage(page);
+        return JSONResult.ok(page.getId());
     }
 
     /**
-     * 缩略图上传
+     * 缩略图上传，并关联修改相应Page记录
      * @param file
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/uploadThumbnail", method = RequestMethod.POST)
-    public String uploadThumbnail(String imageUrl, MultipartFile file, HttpServletRequest request) throws Exception {
-        System.out.println("uploadFile:imageUrl:"+imageUrl+"  file:"+(file == null));
+    public String uploadThumbnail(Integer id, MultipartFile file, HttpServletRequest request) throws Exception {
+        //System.out.println("uploadFile:id:"+id+"  file:"+(file == null));
 
+        StringBuilder imageUrl = new StringBuilder();
+        imageUrl.append("/images/page/thumbnail/");
+        imageUrl.append(Helper.getId() + ".jpg");
+
+        //System.out.println(imageUrl.toString());
         if (file != null && file.getName() != null && !file.isEmpty()) {
             String FILE_TARGET = "target";
             String basePath = request.getSession().getServletContext().getRealPath("/");
@@ -120,16 +172,17 @@ public class AdminController {
             if (basePath.contains(FILE_TARGET)) {
                 basePath = basePath.substring(0,basePath.lastIndexOf(FILE_TARGET));
             }
-            //System.out.println("basePath:"+basePath);
 
-            String dir = basePath;
+            String dir = basePath + "/src/main/webapp";
             try{
                 // 新的图片
                 File newFile = new File(dir + imageUrl);
-
                 // 将内存中的数据写入磁盘
                 file.transferTo(newFile);
-
+                // 关联修改相应Page记录
+                Page page = pageService.getPageById(id);
+                page.setThumbnail(imageUrl.toString());
+                pageService.updatePage(page);
                 return "/back/index";
             }catch (Exception e) {
                 e.printStackTrace();
@@ -137,6 +190,7 @@ public class AdminController {
             }
         }
         return "/error/upload_fail";
+        //return "redirect:/admin/listNews";
     }
 
     /* 20180617 */
@@ -546,11 +600,32 @@ public class AdminController {
         return JSONResult.ok(page);
     }
 
-    @RequestMapping(value = "/pages", method = RequestMethod.POST)
-    public JSONResult addPage(Page page) {
-        pageService.savePage(page);
-        return JSONResult.ok();
-    }
+    // Page页面的增加
+//    /**
+//     *
+//     * @param data
+//     * @return
+//     */
+//    @ResponseBody
+//    @RequestMapping(value = "/pages", method = RequestMethod.POST)
+//    public JSONResult addPage(@RequestBody Map<String, String> data) {
+//        //System.out.println("data:" + data + ", " + data.getClass());
+//        // 获取数据库Page表最大的ID，加1作为新插入记录的ID
+//        Integer maxId = pageService.getMaxId();
+//        String content = data.get("content");
+//        System.out.println(maxId);
+//        Page page = new Page();
+//        page.setTitle(data.get("title"));
+//        page.setContent(content);
+//        page.setId(maxId + 1);
+//        page.setPid(Constants.NEWS_PART_ID);
+//        page.setCreateAt(new Date());
+//        page.setContent(content.substring(0,
+//                Math.min(Constants.MAX_DESCRIPTION_LENGTH, content.length())) + "...");
+//        System.out.println("page:" + page);
+//        pageService.savePage(page);
+//        return JSONResult.ok(page.getId());
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/updatePages", method = RequestMethod.PUT)

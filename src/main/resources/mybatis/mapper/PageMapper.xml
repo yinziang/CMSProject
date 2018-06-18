@@ -13,6 +13,10 @@
     <result column="thumbnail" jdbcType="VARCHAR" property="thumbnail" />
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
+  <select id="selectMaxId" resultType="java.lang.Integer">
+    select max(id)
+    from page
+  </select>
   <select id="selectAllByPartId" resultMap="BaseResultMap">
     select id, title, pid, keyword, description, create_at, update_at, image_url, thumbnail, content
     from page

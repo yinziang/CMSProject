@@ -45,4 +45,9 @@ public class PageServiceImpl implements PageService {
         return pageMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public Integer getMaxId() {
+        return pageMapper.selectMaxId();
+    }
+
 }

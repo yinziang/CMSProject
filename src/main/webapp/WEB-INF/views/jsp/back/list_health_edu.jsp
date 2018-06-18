@@ -24,6 +24,12 @@
     </div>
     <div class="container-fluid">
         <div class="row cm-fix-height">
+            <div class="form-group col" style="margin-top:20px;" >
+                <a class="btn btn-primary col-sm-4" style="width: 20%;margin: auto"
+                   href="/admin/toHealthEduAdd">新增</a>
+            </div>
+        </div>
+        <div class="row cm-fix-height">
 
             <div class="panel panel-default">
                 <div class="panel-heading">健康宣教列表</div>
