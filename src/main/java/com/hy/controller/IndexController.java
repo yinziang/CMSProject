@@ -59,6 +59,7 @@ public class IndexController {
         Map<String, String> briefNews = null;
         for (int i = 0; i < Math.min(pageList.size(), Constants.INDEX_MAX_NEWS_NUMBER); i++) {
             briefNews = new HashMap<>();
+            briefNews.put("id", pageList.get(i).getId()+"");
             briefNews.put("title", pageList.get(i).getTitle());
             briefNews.put("thumbnail", pageList.get(i).getThumbnail());
             briefNews.put("desc", pageList.get(i).getDescription());

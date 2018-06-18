@@ -63,20 +63,23 @@
                 <center>最新资讯</center>
             </h3>
             <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n1.html"><img src="/images/font/zuixinzx/zuixinzx-pic1.jpg"></a></p>
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n1.html">CSN2017 | 肾脏病学分会学术年会于武汉圆满闭幕</a></p>
-                <p>由中华医学会、中华医学会肾脏病学分会主办，湖北省医学会承办的中华医学会肾脏病学分会2017年学术年会在历经4天的学术交流后， 于9月16日在武汉洲际酒店国际会议中心圆满闭幕。</p>
+                <p><a id="zx1-1" href="WEB-INF/views/jsp/font/zuixinzx_n1.html">
+                    <img id="zx1-2" src="/images/font/zuixinzx/zuixinzx-pic1.jpg"></a></p>
+                <p><a id="zx1-3" href="WEB-INF/views/jsp/font/zuixinzx_n1.html">CSN2017 | 肾脏病学分会学术年会于武汉圆满闭幕</a></p>
+                <p id="zx1-4">由中华医学会、中华医学会肾脏病学分会主办，湖北省医学会承办的中华医学会肾脏病学分会2017年学术年会在历经4天的学术交流后， 于9月16日在武汉洲际酒店国际会议中心圆满闭幕。</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n2.html"><img src="/images/font/zuixinzx/zuixinzx-pic2.jpg"></a></p>
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n2.html">肾友会活动——两岸携手，共抗肾病（延吉泌尿肾病医院）</a></p>
-                <p>近日，延边州首家社会办医血液透析中心——延吉泌尿肾病医院正式投入使用，该项目总投资1.5亿元， 是延边州规模最大的非公医疗机构。杏泰医疗有幸参与其中，与香港远东国际医疗投资集团合作，
+                <p><a id="zx2-1" href="WEB-INF/views/jsp/font/zuixinzx_n2.html">
+                    <img id="zx2-2" src="/images/font/zuixinzx/zuixinzx-pic2.jpg"></a></p>
+                <p><a id="zx2-3" href="WEB-INF/views/jsp/font/zuixinzx_n2.html">肾友会活动——两岸携手，共抗肾病（延吉泌尿肾病医院）</a></p>
+                <p id="zx2-4">近日，延边州首家社会办医血液透析中心——延吉泌尿肾病医院正式投入使用，该项目总投资1.5亿元， 是延边州规模最大的非公医疗机构。杏泰医疗有幸参与其中，与香港远东国际医疗投资集团合作，
                     力求为延边的患者提供更好的医疗服务</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;margin-bottom: 20px">
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n3.html"><img src="/images/font/zuixinzx/zuixinzx-pic3.jpg"></a></p>
-                <p><a href="WEB-INF/views/jsp/font/zuixinzx_n3.html">2016省中“仁和”心脑肾高峰对话论坛</a></p>
-                <p>浙江省中医院于近日以“溯源·聚慧·共进”为主题，举办了“2016省中·仁和整合医学论坛”， 肾畅医疗有幸参与其中，并邀请台大医院新竹分院院长洪冠予教授出席了分论坛——心脑肾高峰对话论坛。</p>
+                <p><a id="zx3-1" href="WEB-INF/views/jsp/font/zuixinzx_n3.html">
+                    <img id="zx3-2" src="/images/font/zuixinzx/zuixinzx-pic3.jpg"></a></p>
+                <p><a id="zx3-3" href="WEB-INF/views/jsp/font/zuixinzx_n3.html">2016省中“仁和”心脑肾高峰对话论坛</a></p>
+                <p id="zx3-4">浙江省中医院于近日以“溯源·聚慧·共进”为主题，举办了“2016省中·仁和整合医学论坛”， 肾畅医疗有幸参与其中，并邀请台大医院新竹分院院长洪冠予教授出席了分论坛——心脑肾高峰对话论坛。</p>
             </div>
 
         </div>
@@ -110,6 +113,27 @@
                 if(res.status == 200){
                     console.log("操作成功")
                     document.getElementById("aboutUs-content").innerHTML = res.data.aboutUs.Content;
+
+                    document.getElementById("zx1-1").href = "/font/newsDetails/"+res.data.newsList[0].id;
+                    document.getElementById("zx2-1").href = "/font/newsDetails/"+res.data.newsList[1].id;
+//                    document.getElementById("zx3-1").href = "/font/newsDetails/"+res.data.newsList[2].id;
+
+                    document.getElementById("zx1-2").src = res.data.newsList[0].thumbnail;
+                    document.getElementById("zx2-2").src = res.data.newsList[1].thumbnail;
+//                    document.getElementById("zx3-2").src = res.data.newsList[2].thumbnail;
+
+                    document.getElementById("zx1-3").href = "/font/newsDetails/"+res.data.newsList[0].id;
+                    document.getElementById("zx2-3").href = "/font/newsDetails/"+res.data.newsList[1].id;
+//                    document.getElementById("zx3-3").href = "/font/newsDetails/"+res.data.newsList[2].id;
+
+                    document.getElementById("zx1-3").innerText = res.data.newsList[0].title;
+                    document.getElementById("zx2-3").innerText = res.data.newsList[1].title;
+//                    document.getElementById("zx3-3").innerText = res.data.newsList[2].title;
+
+                    document.getElementById("zx1-4").innerText = res.data.newsList[0].desc;
+                    document.getElementById("zx2-4").innerText = res.data.newsList[1].desc;
+//                    document.getElementById("zx3-4").innerText = res.data.newsList[2].desc;
+
                 } else{
                     alert("操作失败")
                 }

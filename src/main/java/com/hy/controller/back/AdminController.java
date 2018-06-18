@@ -158,13 +158,10 @@ public class AdminController {
      */
     @RequestMapping(value = "/uploadThumbnail", method = RequestMethod.POST)
     public String uploadThumbnail(Integer id, MultipartFile file, HttpServletRequest request) throws Exception {
-        //System.out.println("uploadFile:id:"+id+"  file:"+(file == null));
-
         StringBuilder imageUrl = new StringBuilder();
         imageUrl.append("/images/page/thumbnail/");
         imageUrl.append(Helper.getId() + ".jpg");
 
-        //System.out.println(imageUrl.toString());
         if (file != null && file.getName() != null && !file.isEmpty()) {
             String FILE_TARGET = "target";
             String basePath = request.getSession().getServletContext().getRealPath("/");
@@ -173,7 +170,7 @@ public class AdminController {
                 basePath = basePath.substring(0,basePath.lastIndexOf(FILE_TARGET));
             }
 
-            String dir = basePath + "/src/main/webapp";
+            String dir = basePath;
             try{
                 // 新的图片
                 File newFile = new File(dir + imageUrl);

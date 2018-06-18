@@ -9,7 +9,7 @@
 <%-- 显示的菜单栏信息--%>
 <div id="cm-menu">
     <nav class="cm-navbar cm-navbar-primary">
-        <div class="cm-flex"><a href="index.html" class="cm-logo"></a></div>
+        <div class="cm-flex"><a href="/admin/index" class="cm-logo"></a></div>
         <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
     </nav>
     <div id="cm-menu-content">

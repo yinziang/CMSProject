@@ -1,5 +1,13 @@
 $(document).ready(function () {
-    dropdownopen();
+    var isMobile = /Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)
+    if (isMobile) {
+        console.log("手机。。")
+    } else {
+        // 当前网页在PC端打开
+        console.log("电脑。。")
+        dropdownopen();
+    }
+
 })
 
 /**
@@ -7,9 +15,12 @@ $(document).ready(function () {
  */
 function dropdownopen() {
     var $dropdownli = $('li.dropdown');
-    $dropdownli.mouseover(function() {
-        $(this).addClass('open');
-    }).mouseout(function() {
-        $(this).removeClass('open');
+    $dropdownli.mouseover(function () {
+        $(this).addClass("open");
     });
+
+    $dropdownli.mouseout(function(){
+        $(this).removeClass("open");
+    })
+
 }

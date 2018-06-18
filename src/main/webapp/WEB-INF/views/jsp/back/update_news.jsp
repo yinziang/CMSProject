@@ -31,7 +31,7 @@
                     <input type="text" id="title" class="form-control" placeholder="Enter title" disabled>
                 </div>
                 <label>Content</label>
-                <div id="summernote"></div>
+                <div id="summernote1"></div>
                 <div class="form-group text-right" style="margin-top:20px">
                     <button type="submit" class="btn btn-default" onclick="clickUpdate()">启用修改</button>
                     <button id="saveBtn" type="submit" class="btn btn-primary" onclick="clickSave()" disabled>保存修改</button>
@@ -72,7 +72,7 @@
     $(function () {
         load();
 
-        $('#summernote').summernote({
+        $('#summernote1').summernote({
             lang: 'zh-CN', // default: 'en-US'
             height: 300,
             onImageUpload: function(files, editor, welEditable) {
@@ -122,7 +122,7 @@
                     document.getElementById("title").value = res.data.title;
                     document.getElementById("brief-img").src = res.data.thumbnail;
                     document.getElementById("page-image-url").value = res.data.thumbnail;
-                    $('#summernote').code(res.data.content);
+                    $('#summernote1').code(res.data.content);
                 } else {
                     console.log("操作失败")
                 }
@@ -142,7 +142,7 @@
         console.log("点击了保存:date:"+data);
 
         data.title = $('#title').val();
-        data.content = $('#summernote').code();
+        data.content = $('#summernote1').code();
 
         console.log(data)
 

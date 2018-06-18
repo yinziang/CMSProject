@@ -48,25 +48,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-haspopup="true"
-                           aria-expanded="false">解决方案 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="/font/toDesign">设计规划</a>
-                            </li>
-                            <li>
-                                <a href="/font/toMarket">市场营销</a>
-                            </li>
-                            <li>
-                                <a href="/font/toTrain">人员培训</a>
-                            </li>
-                            <li>
-                                <a href="/font/toSystem">信息化系统</a>
-                            </li>
-                        </ul>
-                    </li>
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-haspopup="true"
@@ -83,6 +65,26 @@
                             </li>
                             <li>
                                 <a href="/font/toCRCenter">崇仁肾畅血透中心</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false">解决方案 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/font/toDesign">设计规划</a>
+                            </li>
+                            <li>
+                                <a href="/font/toMarket">市场营销</a>
+                            </li>
+                            <li>
+                                <a href="/font/toTrain">人员培训</a>
+                            </li>
+                            <li>
+                                <a href="/font/toSystem">信息化系统</a>
                             </li>
                         </ul>
                     </li>
